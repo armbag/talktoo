@@ -5,7 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
 require 'faker'
+
+ChatRoom.create(name: "general")
 
 User.destroy_all
 
@@ -208,3 +212,4 @@ user20 = User.create!({
   specialty: "business",
   remote_avatar_url: "https://images.unsplash.com/photo-1520409364224-63400afe26e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=658&q=80"
 })
+
