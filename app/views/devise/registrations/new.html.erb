@@ -29,17 +29,12 @@
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :avatar %>
         <%= f.input :avatar_cache, as: :hidden %>
-        <%= f.input :video %>
-        <%= f.input :video_cache, as: :hidden %>
-
         <%= f.button :submit, "Sign up", class: "form-actions btn-pets btn-block" %>
     <% end %>
-<br>
+    <br>
     <div class="links">
     <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>
 </div>
-
-<%= render "devise/shared/links" %>
