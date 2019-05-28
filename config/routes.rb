@@ -1,25 +1,14 @@
 Rails.application.routes.draw do
-  get 'meetings/new'
-  get 'meetings/index'
-  get 'meetings/show'
-  get 'meetings/update'
-  get 'meetings/edit'
-  get 'meetings/delete'
-  get 'reviews/new'
-  get 'reviews/index'
-  get 'reviews/create'
-  get 'reviews/update'
-  get 'reviews/edit'
-  get 'slots/new'
-  get 'slots/index'
-  get 'slots/create'
-  get 'slots/update'
-  get 'slots/edit'
-  get 'users/new'
-  get 'users/index'
   get 'users/show'
-  get 'users/update'
-  get 'users/edit'
+  devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  resources :users, only: [:show] do
+    resources :reviews, only: [:index, :create, :new, :update, :edit]
+  end
+  resources :meetings, only: [:index, :create, :new, :update, :edit, :delete]
+  resources :slots, only: [:index, :create, :new, :update, :edit]
+  
 end
+
+  
