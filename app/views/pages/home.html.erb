@@ -1,1 +1,15 @@
-<h1>Welcome to talktoo</h1>
+<div class="bg-home">
+  <div class="content-block col-12 col-lg-6">
+
+     <h1>Choose a language</h1>
+
+    <%= form_tag(users_show_path, method: :get) do %>
+      <%= text_field_tag :specialty,
+                          params[:specialty],
+                          class: "form-control",
+                          placeholder:'Choose a language'%>
+      <%= submit_tag "Start", class: "btn-talk" %>
+
+    <% end %>
+  </div>
+</div>

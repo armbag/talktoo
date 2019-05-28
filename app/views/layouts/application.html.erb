@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <title>talktoo</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -11,9 +11,14 @@
   </head>
   <body>
     <%= render 'shared/navbar' %>
-    <%= yield %>
+    <%= render 'shared/authentification' unless current_user %>
+    <div class="mega-container">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <script src="https://swc.cdn.skype.com/sdk/v1/sdk.min.js"></script>
+    <!-- <script src="https://swc.cdn.skype.com/sdk/v1/sdk.min.js"></script> -->
   </body>
 </html>
