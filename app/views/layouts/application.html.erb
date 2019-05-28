@@ -19,6 +19,10 @@
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+
     <!-- <script src="https://swc.cdn.skype.com/sdk/v1/sdk.min.js"></script> -->
+
+    <%= yield :after_js %>
+
   </body>
 </html>
