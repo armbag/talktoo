@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_141422) do
-
+ActiveRecord::Schema.define(version: 2019_05_28_164241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,11 +22,11 @@ ActiveRecord::Schema.define(version: 2019_05_28_141422) do
   end
 
   create_table "meetings", force: :cascade do |t|
-    t.bigint "users_id"
     t.string "topic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_meetings_on_users_id"
+    t.bigint "student_id"
+    t.index ["student_id"], name: "index_meetings_on_student_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -43,10 +42,12 @@ ActiveRecord::Schema.define(version: 2019_05_28_141422) do
   create_table "reviews", force: :cascade do |t|
     t.string "comment"
     t.integer "rating"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.bigint "reviewer_id"
+    t.bigint "reviewed_id"
+    t.index ["reviewed_id"], name: "index_reviews_on_reviewed_id"
+    t.index ["reviewer_id"], name: "index_reviews_on_reviewer_id"
   end
 
   create_table "slots", force: :cascade do |t|
@@ -78,9 +79,10 @@ ActiveRecord::Schema.define(version: 2019_05_28_141422) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "meetings", "users", column: "users_id"
+  add_foreign_key "meetings", "users", column: "student_id"
   add_foreign_key "messages", "users"
-  add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "users", column: "reviewed_id"
+  add_foreign_key "reviews", "users", column: "reviewer_id"
   add_foreign_key "slots", "meetings"
   add_foreign_key "slots", "users"
 end
