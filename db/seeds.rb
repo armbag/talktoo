@@ -13,6 +13,7 @@ ChatRoom.create(name: "general")
 
 User.destroy_all
 
+
 user1 = User.create!({
   name: Faker::Name.female_first_name,
   email: Faker::Internet.free_email,
