@@ -1,2 +1,7 @@
-<h1>Users#index</h1>
+<h1><%= @users.last %></h1>
 <p>Find me in app/views/users/index.html.erb</p>
+
+<% @users.each do |teacher| %>
+  <%= teacher.name %>
+  <%= teacher.native_language %>
+<% end %>
