@@ -18,6 +18,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'omniauth'
+gem 'omniauth-linkedin-oauth2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
