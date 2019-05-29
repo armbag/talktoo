@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
 
   def new
-    redirect_to "user_session_path"
+    redirect_to user_session_path
   end
 
   def index
