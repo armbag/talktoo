@@ -1,6 +1,8 @@
+<%= link_to "Login with Linkedin", user_linkedin_omniauth_authorize_path, 'data-toggle' => "modal", 'data-target' => "#loginModal", class: "btn btn-danger" %>
+<%# avatar_url = current_user.linkedin_picture_url || "http://placehold.it/30x30" %>
 <div class="navbar navbar-expand-sm navbar-light navbar-talktoo">
   <%= link_to root_path, class: "navbar-brand" do %>
-  <i class="fas fa-video"></i>
+ <!--  <i class="fas fa-video"></i> -->
     <%= image_tag "logo.png" %>
     <span class="navbar-logo">talktoo</span>
     <% end %>
@@ -15,10 +17,10 @@
       <% if user_signed_in? %>
        <li class="nav-item">
 
-         <!--  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %> -->
+         <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
 
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to "My account", users_show_path, class: "nav-link" %>
         </li>
 
@@ -32,18 +34,18 @@
             <%= link_to "Find a talktuta", new_meeting_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
-           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </li>
       <% else %>
         <li class="nav-item">
           <%# link_to "Login", new_user_session_path %>
 
           <%= link_to "Login", new_user_session_path, 'data-toggle' => "modal", 'data-target' => "#loginModal" %>
+
         </li>
 
-        <li class="nav-item">
-          <%= link_to "Sign Up", new_user_registration_path, 'data-toggle' => "modal", 'data-target' => "#signupModal" %>
-        </li>
+      <li class="nav-item">
+          <%#= link_to "Sign Up", new_user_registration_path, 'data-toggle' => "modal", 'data-target' => "#signupModal" %>
+
 
         <li class="nav-item">
           <%= link_to "Become a talktuta", new_user_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#loginModal" %>

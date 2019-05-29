@@ -1,8 +1,22 @@
 .bg-home {
+  position:absolute;
+  top:100px;
+  // left:0;
+  width:100%;
+  height:100%;
   background:$gradient;
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-position: center;
-  padding: 100px;
+  // background-repeat: no-repeat;
+  // background-size:cover;
+  // background-position: center;
+  // padding: 100px;
   height: 600px;
+}
+ .bg-slant{
+  position:absolute;
+  bottom:0;
+  width: 100%;
+  height:0;
+  border-top:4vw solid transparent;
+  border-bottom: 0;
+  border-left:100vw solid #fff;
 }
