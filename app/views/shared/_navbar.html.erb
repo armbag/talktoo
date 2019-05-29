@@ -1,3 +1,5 @@
+<%= link_to "Login with Linkedin", user_linkedin_omniauth_authorize_path, 'data-toggle' => "modal", 'data-target' => "#loginModal", class: "btn btn-danger" %>
+<%# avatar_url = current_user.linkedin_picture_url || "http://placehold.it/30x30" %>
 <div class="navbar navbar-expand-sm navbar-light navbar-talktoo">
   <%= link_to root_path, class: "navbar-brand" do %>
   <i class="fas fa-video"></i>
@@ -39,6 +41,7 @@
           <%# link_to "Login", new_user_session_path %>
 
           <%= link_to "Login", new_user_session_path, 'data-toggle' => "modal", 'data-target' => "#loginModal" %>
+
         </li>
 
         <li class="nav-item">
