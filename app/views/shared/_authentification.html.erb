@@ -28,7 +28,8 @@
               <%= f.button :submit, "Log in", class:"btn-talk btn-block" %>
             </div>
             <% end %>
-
+            <br>
+            <hr>
               <%= render "devise/shared/links" %>
           </div>
         </div>
@@ -76,6 +77,8 @@
             <%= f.input :avatar_cache, as: :hidden %>
             <%= f.button :submit, "Sign up", class: "form-actions btn-talk btn-block" %>
           <% end %>
+
+          <hr>
 
           <div class="links">
             <%= render "devise/shared/links" %>
