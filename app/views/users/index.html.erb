@@ -1,13 +1,15 @@
 <h1>Find someone you wanna practice a language</h1>
 
 <div class="cards">
-  <% @users.each do |teacher| %>
-  <div class="card-category">
-    <%= teacher.name %>
-    <%= teacher.native_language %>
-    <%= teacher.bio %>
-    <br>
-    <%= cl_image_tag(teacher.avatar, :width => 100, :height => 100, :crop => :thumb, :gravity => :face) %>
-  </div>
+  <% @users.each do |user| %>
+      <%= link_to user_path(user) do %>
+      <div class="card-category">
+        <%= user.name %>
+        <%= user.native_language %>
+        <%= user.bio %>
+        <br>
+        <%= cl_image_tag(user.avatar, :width => 100, :height => 100, :crop => :thumb, :gravity => :face) %>
+      </div>
+      <% end %>
   <% end %>
 </div>
