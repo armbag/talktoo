@@ -5,7 +5,7 @@
 
      <h1>Choose a language</h1>
 
-    <%= form_tag(users_show_path(@users), method: :get) do %>
+    <%= form_tag(users_path, method: :get) do %>
       <%= text_field_tag :native_language,
                           params[:native_language],
                           class: "form-control",
