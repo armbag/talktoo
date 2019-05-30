@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_29_144316) do
+ActiveRecord::Schema.define(version: 2019_05_30_085220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,14 +53,14 @@ ActiveRecord::Schema.define(version: 2019_05_29_144316) do
   end
 
   create_table "slots", force: :cascade do |t|
-    t.bigint "user_id"
     t.datetime "start"
     t.datetime "end"
     t.bigint "meeting_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "teacher_id"
     t.index ["meeting_id"], name: "index_slots_on_meeting_id"
-    t.index ["user_id"], name: "index_slots_on_user_id"
+    t.index ["teacher_id"], name: "index_slots_on_teacher_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2019_05_29_144316) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "linkedin_id"
     t.string "name"
     t.text "bio"
     t.string "native_language"
@@ -87,5 +88,5 @@ ActiveRecord::Schema.define(version: 2019_05_29_144316) do
   add_foreign_key "reviews", "users", column: "reviewed_id"
   add_foreign_key "reviews", "users", column: "reviewer_id"
   add_foreign_key "slots", "meetings"
-  add_foreign_key "slots", "users"
+  add_foreign_key "slots", "users", column: "teacher_id"
 end
