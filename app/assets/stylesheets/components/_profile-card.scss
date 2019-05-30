@@ -1,0 +1,28 @@
+.content {
+  display: flex;
+}
+
+.profile-cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+.profile-cards a {
+  color: #00C5E0;
+  text-decoration: none;
+}
+
+.profile-image img {
+  width: 100px;
+  height: 100px;
+}
+
+.profile-image {
+  width:100px;
+}
+
+
+
