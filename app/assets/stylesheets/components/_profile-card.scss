@@ -1,3 +1,7 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 .content {
   display: flex;
 }
@@ -8,6 +12,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   padding: 16px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .profile-cards a {
@@ -15,13 +20,27 @@
   text-decoration: none;
 }
 
-.profile-image img {
-  width: 100px;
-  height: 100px;
+
+.cards {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
 }
 
-.profile-image {
-  width:100px;
+
+.cards img {
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.profile-cards img {
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 

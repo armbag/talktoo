@@ -1,50 +1,42 @@
 <div>
   <h1 class="text-center">Find someone you wanna practice a language</h1>
   <div class="row justify-content-center">
-
-
     <div class="col-4">
       <%= form_tag users_path, method: :get do %>
         <%= select_tag :tag_id, options_for_select(Tag.all.map {|x| [x.name,x.id]}), {multiple: true, class: 'select2'} %>
         <%= submit_tag "GO", class: 'btn btn-primary btn-block' %>
       <% end %>
-
-
-<!--       <%= simple_form_for Tagging.new, url: users_path, method: :get do |f| %>
-        <%= f.association :tag, include_blank: false, input_html: {multiple: true, class: 'select2' }   %>
-        <%= f.submit "Search by field", class: 'btn btn-primary btn-block' %>
-      <% end %> -->
     </div>
   </div>
-
-
-
-
-    <div class="content">
-      <div class="profile-cards">
-        <% @users.each do |user| %>
-          <%= link_to user_path(user) do %>
-            <div class="profile-image">
-              <%= cl_image_tag(user.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
-            </div>
-            <div>
-              <p><%= user[:rating] %>4.7 (31)</p>
-
-              <p><%= user.tags.pluck(:name) %></p>
-
-
-            </div>
-              <div>
-                <h2><%= user[:name] %></h2>
-                <p><%= user[:bio] %></p>
-                <p><%= user[:native_language] %></p>
-              </div>
-              <div>
-                <hr>
-                <p>Next availiablity<%= user[:slots] %></p>
-              </div>
-            <% end %>
-          <% end %>
-      </div>
-    </div>
 </div>
+
+<div>
+  <div class="content">
+    <div class="profile-cards">
+      <% @users.each do |user| %>
+        <%= link_to user_path(user) do %>
+          <div class="flip-info-content cards">
+            <div class="flip-info-card">
+              <div class="flip-front row" >
+                <div class="text-center">
+                  <%= cl_image_tag(user.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
+                    <p><%= user[:rating] %>4.7 (31)</p>
+                    <h3><%= user[:name] %></h3>
+                    <p><%= user[:specialty] %></p>
+                </div>
+              </div>
+              <div class="flip-back">
+                <p><%= user[:bio] %></p>
+                <p><%= user.tags.pluck(:name) %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
