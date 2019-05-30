@@ -4,7 +4,7 @@
       <div>
        <h1>Practice a llllanguage you know with a native speaker</h1>
       </div>
-        <%= form_tag(users_show_path, method: :get) do %>
+        <%= form_tag(users_path, method: :get) do %>
           <div class="search-form-control form-group">
             <%= text_field_tag :native_language,
                                 params[:native_language],
