@@ -1,5 +1,25 @@
 <div>
   <h1 class="text-center">Find someone you wanna practice a language</h1>
+  <div class="row justify-content-center">
+
+
+    <div class="col-4">
+      <%= form_tag users_path, method: :get do %>
+        <%= select_tag :tag_id, options_for_select(Tag.all.map {|x| [x.name,x.id]}), {multiple: true, class: 'select2'} %>
+        <%= submit_tag "GO", class: 'btn btn-primary btn-block' %>
+      <% end %>
+
+
+<!--       <%= simple_form_for Tagging.new, url: users_path, method: :get do |f| %>
+        <%= f.association :tag, include_blank: false, input_html: {multiple: true, class: 'select2' }   %>
+        <%= f.submit "Search by field", class: 'btn btn-primary btn-block' %>
+      <% end %> -->
+    </div>
+  </div>
+
+
+
+
     <div class="content">
       <div class="profile-cards">
         <% @users.each do |user| %>
@@ -9,6 +29,10 @@
             </div>
             <div>
               <p><%= user[:rating] %>4.7 (31)</p>
+
+              <p><%= user.tags.pluck(:name) %></p>
+
+
             </div>
               <div>
                 <h2><%= user[:name] %></h2>
