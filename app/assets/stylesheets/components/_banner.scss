@@ -1,5 +1,7 @@
 .banner {
   padding-top: 150px;
+  width: 70%;
+  padding-left: 40px;
 }
 
 .banner h1 {
@@ -8,7 +10,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 40px;
   font-weight: bold;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .banner p {
@@ -22,7 +24,7 @@
   position: relative;
 }
 
-.banner img {
+.human1 {
   bottom: 75px;
   width: 300px;
   height: 300px;
