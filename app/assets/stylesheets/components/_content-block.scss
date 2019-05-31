@@ -1,4 +1,5 @@
 .content-block {
+  margin-top: 100px;
   background-color: #ffffffbd;
   margin: 100px auto;
   max-width: 800px;
@@ -18,4 +19,23 @@
 .content-block img {
   width: 100px;
   height:100px;
+}
+
+.container-home {
+  padding: 100px;
+  margin-bottom: 100px;
+  padding-bottom: 100px;
+  // background-color:red;
+}
+
+
+.home-cards{
+  padding:30px;
+  width:400px;
+  height:300px;
+  box-shadow: 0 0 5px rgb(230,230,230);
+  border-radius:4px;
+  margin-top: 50px;
+  color:#ffffff;
+  background-color: $darkblue;
 }
