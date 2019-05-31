@@ -9,12 +9,10 @@
 
 require 'faker'
 
-
+Slot.destroy_all
 Tagging.destroy_all
 Tag.destroy_all
 User.destroy_all
-Meeting.destroy_all
-Slot.destroy_all
 Review.destroy_all
 Message.destroy_all
 ChatRoom.destroy_all
@@ -240,4 +238,6 @@ Rake::Task['db:slots'].invoke
 
 # Meetings Seeds
 Rake::Task['db:meetings'].invoke
+
+puts 'Seed completed'
 
