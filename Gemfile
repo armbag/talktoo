@@ -23,6 +23,7 @@ gem 'omniauth-linkedin-oauth2'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.11.1'
 gem 'bootstrap', '4.0.0.alpha6'
+gem 'strftime', '~> 1.0'
 
 source 'http://insecure.rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'

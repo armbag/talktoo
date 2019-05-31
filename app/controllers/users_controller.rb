@@ -24,6 +24,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @slot = Slot.new
+    @chat_room = ChatRoom.first
   end
 
   def update

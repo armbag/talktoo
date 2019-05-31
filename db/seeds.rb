@@ -26,6 +26,9 @@ travel = Tag.create(name: "Travel")
 fashion = Tag.create(name: "Fashion/Beauty")
 humour = Tag.create(name: "Humour")
 
+
+
+# User Seeds
 user1 = User.create!({
   name: Faker::Name.female_first_name,
   email: Faker::Internet.free_email,
@@ -229,4 +232,12 @@ user20 = User.create!({
 user18.tags = [ travel, humour ]
 user19.tags = [ travel ]
 
+
+
+# Slots Seeds
+Rake::Task['db:slots'].invoke
+
+
+# Meetings Seeds
+Rake::Task['db:meetings'].invoke
 
