@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'messages/create'
-  get 'users/show'
+  # get 'users/show'
   devise_for :users, controllers: {
     omniauthcallbacks: 'users/omniauth_callbacks'
   }
