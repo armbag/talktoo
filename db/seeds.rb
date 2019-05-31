@@ -9,10 +9,22 @@
 
 require 'faker'
 
+
+Tagging.destroy_all
+Tag.destroy_all
+User.destroy_all
+Meeting.destroy_all
+Slot.destroy_all
+Review.destroy_all
+Message.destroy_all
+ChatRoom.destroy_all
+
 ChatRoom.create(name: "general")
 
-User.destroy_all
-
+recipe = Tag.create(name: "Recipe")
+travel = Tag.create(name: "Travel")
+fashion = Tag.create(name: "Fashion/Beauty")
+humour = Tag.create(name: "Humour")
 
 user1 = User.create!({
   name: Faker::Name.female_first_name,
@@ -213,4 +225,8 @@ user20 = User.create!({
   specialty: "business",
   remote_avatar_url: "https://images.unsplash.com/photo-1520409364224-63400afe26e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=658&q=80"
 })
+
+user18.tags = [ travel, humour ]
+user19.tags = [ travel ]
+
 

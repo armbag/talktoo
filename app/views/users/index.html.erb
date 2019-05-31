@@ -1,3 +1,15 @@
+<div>
+  <h1 class="text-center">Find someone you wanna practice a language</h1>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <%= form_tag users_path, method: :get do %>
+        <%= select_tag :tag_id, options_for_select(Tag.all.map {|x| [x.name,x.id]}), {multiple: true, class: 'select2'} %>
+        <%= submit_tag "GO", class: 'btn btn-primary btn-block' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="row">
   <% @users.each do |user| %>
@@ -15,7 +27,7 @@
         </div>
         <div class="flip-back p-4">
           <p><%= user[:bio] %></p>
-          <p><%= user[:tags] %></p>
+          <p><%= user.tags.pluck(:name) %></p>
         </div>
       </div>
     </div>

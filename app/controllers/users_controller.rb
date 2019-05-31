@@ -8,8 +8,18 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
-    @users = @users.where(native_language: params[:native_language]) unless params[:native_language].blank?
+      @users = User.all
+    # if params[:taggings] != nil
+    #   @users = Tag.find(params[:tagging][:tag_id][1].to_i).users
+    #   break
+    # else
+      @users = @users.where(native_language: params[:native_language]) unless params[:native_language].blank?
+
+      unless params[:tag_id].blank?
+        @users = @users.joins(:taggings).where(taggings: {tag_id: params[:tag_id]})
+        @users = @users.all.uniq.select { |u| (u.tags.ids & params[:tag_id].map(&:to_i)).size == params[:tag_id].size }
+      end
+
   end
 
   def show
@@ -39,7 +49,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-  params.require(:user).permit(:name, :bio, :avatar, :email, :native_language, :specialty)
+  params.require(:user).permit(:name, :bio, :avatar, :email, :native_language, :specialty, :taggings)
   end
 
 end
