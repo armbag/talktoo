@@ -1,51 +1,30 @@
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
-
 .flip-info-content {
   display: flex;
-  margin: 0 auto;
-  justify-content: center;
-  flex-wrap: wrap;
-  width:100%;
+  flex-flow: wrap;
 }
 
-
-.description {
-  width: 100%;
-  margin-top: 0;
-  margin-left: 1rem;
-  margin-bottom: 3rem;
-}
 
 .flip-info-card {
-  color: inherit;
+  align-content:space-between;
+  padding: 20px;
   cursor: pointer;
-  width: calc(33% - 2rem);
-  min-width: calc(33% - 2rem);
-  height: 400px;
-  min-height: 400px;
-  perspective: 1000px;
-  margin: 1rem;
-  position: relative;
+  height: 300px;
+  width: 300px;
+  margin:20px;
 }
-@media screen and (max-width: 800px) {
-  .flip-info-card {
-    width: calc(50% - 2rem);
-  }
+
+.flip-info-card img{
+  margin-top: 10px;
+  margin-bottom:10px;
+  width: 100px;
+  height: 100px;
 }
-@media screen and (max-width: 500px) {
-  .flip-info-card {
-    width: 100%;
-  }
-}
+
 
 .flip-front,
 .flip-back {
-  display: flex;
   text-align: center;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: absolute;
   -webkit-backface-visibility: hidden;
@@ -55,39 +34,51 @@
 }
 
 .flip-front {
-  font-size: 1.618rem;
-  color: #000;
+  color: grey;
   overflow: hidden;
+  background-color:#ffffff;
+  border-right:4px solid #167FFB;
+  width:300px;
+  height:300px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+.flip-front p {
+  color: #030303;
+}
+
 .flip-front:before {
   position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   opacity: .25;
-  z-index: -1;
 }
+
 .flip-info-card:hover .flip-front {
   transform: rotateY(180deg);
 }
+
 .flip-info-card:nth-child(even):hover .flip-front {
   transform: rotateY(-180deg);
 }
 
 .flip-back {
   background: #fff;
+  border-left: 4px solid #167FFB;
   transform: rotateY(-180deg);
   color:#000000;
+  background-color:#ffffff;
+  width:300px;
+  height:300px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .flip-info-card:hover .flip-back {
   transform: rotateY(0deg);
 }
+
 .flip-info-card:nth-child(even) .flip-back {
   transform: rotateY(180deg);
 }
+
 .flip-info-card:nth-child(even) .flip-back .button {
   background: linear-gradient(135deg, #e61a80, #e61a3c);
 }
