@@ -1,38 +1,43 @@
-<div>
-  <h1 class="text-center">Find someone you wanna practice a language</h1>
-  <div class="row justify-content-center">
-    <div class="col-4">
-      <%= form_tag users_path, method: :get do %>
-        <%= select_tag :tag_id, options_for_select(Tag.all.map {|x| [x.name,x.id]}), {multiple: true, class: 'select2'} %>
-        <%= submit_tag "GO", class: 'btn btn-primary btn-block' %>
-      <% end %>
-    </div>
-  </div>
-</div>
+<div class="container-fluid">
+  <h2 class="text-center">Find someone to practice a language with</h2>
+    <div class="row justify-content-center">
+        <%= form_tag users_path, method: :get do %>
+          <%= select_tag :tag_id, options_for_select(Tag.all.map {|x| [x.name,x.id]}), {multiple: true, class: "select2 search",:prompt => 'Choose a Topic'} %>
+          <%= submit_tag "GO", class: "btn-talk-search" %>
+        <% end %>
+     <!--  </div> -->
 
-<div class="container">
-  <div class="row">
-  <% @users.each do |user| %>
-  <%= link_to user_path(user) do %>
-    <div class="flip-info-content">
-      <div class="flip-info-card">
-        <div class="flip-front flex-wrap">
-          <%= cl_image_tag(user.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
-            <p><%= user[:rating] %>4.7 (31)</p>
-            <h3><%= user[:name] %></h3>
-            <p>Specialty: <%= user[:specialty].capitalize %></p>
-            <p><%= user[:price] %>€</p>
-            <p>Next avaliablity:</p>
-            <p><%= user[:slots] %></p>
-        </div>
-        <div class="flip-back p-4">
-          <p><%= user[:bio] %></p>
-          <p><%= user.tags.pluck(:name) %></p>
+
+      <div class="container-fluid p-4">
+        <div class="row justify-content-center">
+          <!-- <div class="col-lg-12"> -->
+            <% @users.each do |user| %>
+            <%= link_to user_path(user) do%>
+              <div class="flip-info-content justify-content-center p-4">
+                <div class="flip-info-card">
+                  <div class="flip-front flex-wrap">
+                    <%= cl_image_tag(user.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
+                      <p>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <%= user[:rating] %></p>
+                      <h3><%= user[:name] %></h3>
+                      <p>Specialty: <%= user[:specialty].capitalize %></p>
+                      <p><%= user[:price] %>€</p>
+                      <p>Next avaliablity:</p>
+                      <p><%= user[:slots] %></p>
+                  </div>
+                  <div class="flip-back">
+                    <p><%= user[:bio] %></p>
+                    <p><%= user.tags.pluck(:name) %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <% end %>
+          <!-- </div> -->
         </div>
       </div>
-    </div>
-  <% end %>
-  <% end %>
-  </div>
 </div>
-
