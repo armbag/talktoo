@@ -1,14 +1,65 @@
 <div class="bg-profile">
 <!--   <div class="container"> -->
-    <div class="content-block">
-
-
-      <h3 class="text-center">Welcome to <%= @user.name %>'s page!</h3>
-      <%= cl_image_tag(@user.avatar, :width => 100, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
+  <div class="content-block">
+    <h3 class="text-center">Welcome to <%= @user.name %>'s page!</h3>
+    <%= cl_image_tag(@user.avatar, :width => 100, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
 
       <h1></h1>
       <p>Avaliablity</p>
 
-    </div>
   <!-- </div> -->
+
+    <% @user.slots.each do |slot| %>
+      <br>
+      <%= slot.start_format %>
+      <%= link_to "Book this slot", new_meeting_path, class: "btn-primary" %>
+      <% if current_user == slot.teacher %>
+        <%= link_to "Remove this slot", user_slot_path(@user), method: :delete %>
+      <% end %>
+    <% end %>
+
+
+<%= simple_form_for [@user, @slot] do |f| %>
+        <%= f.input :start, input_html: {placeholder: 1} %>
+        <%= f.input :end, input_html: {placeholder: "#{DateTime.now}"} %>
+        <%= f.input :price, input_html: {placeholder: "$"} %>
+        <%= f.submit "Add this slot to your profile", class: "btn-pets btn-block" %>
+      <% end %>
+
+
+<h2>ask a question</h2>
+<!-- <div class="container"> -->
+  <div class="row">
+    <div class="col-sm-12 col-sm-offset-3">
+      <div class="chat-header"><h4>#<%= @chat_room.name %></h4></div>
+      <div class="messages">
+        <% @chat_room.messages.each do |message| %>
+          <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
+        <% end %>
+      </div>
+      <div id="create-message">
+        <%= simple_form_for [ @chat_room, Message.new ], remote: true, html: {autocomplete: "off" } do |f| %>
+          <%= f.input :content, label: false %>
+          <%= f.submit class: "btn btn-primary mt-2 btn-block" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+  <% content_for :after_js do %>
+    <script>
+      // scrollLastMessageIntoView();
+      App['chat_room_<%= @chat_room.id %>'] = App.cable.subscriptions.create({ channel: 'ChatRoomsChannel', chat_room_id: <%= @chat_room.id %> }, {
+        received: (data) => {
+          if (data.current_user_id !== <%= current_user.id %>) {
+            const messagesContainer = document.querySelector('.messages');
+            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+            scrollLastMessageIntoView();
+          }
+        }
+      })
+      </script>
+    <% end %>
+  </div>
 </div>
+

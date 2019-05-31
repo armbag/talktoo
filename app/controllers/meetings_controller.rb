@@ -14,6 +14,6 @@ class MeetingsController < ApplicationController
   def edit
   end
 
-  def delete
+  def destroy
   end
 end
