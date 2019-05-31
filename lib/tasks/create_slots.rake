@@ -15,6 +15,5 @@ namespace :db do
       )
       start_time += 15.minutes
     end
-    puts "#{Slot.all.size} slots created"
   end
 end
