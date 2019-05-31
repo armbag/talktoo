@@ -10,33 +10,29 @@
   </div>
 </div>
 
-<div>
-  <div class="content">
-    <div class="profile-cards">
-      <% @users.each do |user| %>
-        <%= link_to user_path(user) do %>
-          <div class="flip-info-content cards">
-            <div class="flip-info-card">
-              <div class="flip-front row" >
-                <div class="text-center">
-                  <%= cl_image_tag(user.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
-                    <p><%= user[:rating] %>4.7 (31)</p>
-                    <h3><%= user[:name] %></h3>
-                    <p><%= user[:specialty] %></p>
-                </div>
-              </div>
-              <div class="flip-back">
-                <p><%= user[:bio] %></p>
-                <p><%= user.tags.pluck(:name) %></p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+<div class="container">
+  <div class="row">
+  <% @users.each do |user| %>
+  <%= link_to user_path(user) do %>
+    <div class="flip-info-content">
+      <div class="flip-info-card">
+        <div class="flip-front flex-wrap">
+          <%= cl_image_tag(user.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
+            <p><%= user[:rating] %>4.7 (31)</p>
+            <h3><%= user[:name] %></h3>
+            <p>Specialty: <%= user[:specialty].capitalize %></p>
+            <p><%= user[:price] %>€</p>
+            <p>Next avaliablity:</p>
+            <p><%= user[:slots] %></p>
+        </div>
+        <div class="flip-back p-4">
+          <p><%= user[:bio] %></p>
+          <p><%= user.tags.pluck(:name) %></p>
+        </div>
+      </div>
     </div>
+  <% end %>
+  <% end %>
   </div>
 </div>
-
-
-
 
