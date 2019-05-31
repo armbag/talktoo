@@ -17,14 +17,28 @@ class User < ApplicationRecord
   has_many :slots, foreign_key: "teacher_id", dependent: :destroy
   has_many :meetings_as_teacher, through: :slots
 
-  # def self.from_facebook(auth)
-  #   where(linkedin_id: auth.uid).first_or_create do |user|
-  #     user.email = auth.info.email
-  #     user.skip_confirmation!
-  #   end
+  has_many :taggings
+  has_many :tags, through: :taggings
 
-  # end
-   def self.find_for_linkedin_oauth(auth)
+  def self.tagged_with(name)
+    Tag.find_by!(name: name).posts
+  end
+
+  def self.tag_counts
+    Tag.select('tags.*, count(taggings.tag_id) as count').joins(:taggings).group('taggings.tag_id')
+  end
+
+  def tag_list
+    tags.map(&:name).join(', ')
+  end
+
+  def tag_list=(names)
+    self.tags = names.split(',').map do |n|
+      Tag.where(name: n.strip).first_or_create!
+    end
+  end
+
+  def self.find_for_linkedin_oauth(auth)
     user_params = auth.slice("provider", "uid")
     user_params.merge! auth.info.slice("email", "first_name", "last_name")
     user_params[:linkedin_picture_url] = auth.info.image
@@ -41,7 +55,6 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.save
     end
-
     return user
   end
 end
