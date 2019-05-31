@@ -6,7 +6,7 @@ namespace :db do
 
     start_time = DateTime.parse("June 1, 12:00 AM")
 
-    until start_time > DateTime.parse("May 31, 11:45 PM")
+    until start_time > DateTime.parse("June 2, 11:45 PM")
       Slot.create!(
         start: start_time,
         end: start_time + 15.minutes,
