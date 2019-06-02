@@ -14,14 +14,13 @@
     <% @user.slots.each do |slot| %>
       <br>
       <%= slot.start_format %>
-      <% if slot.meeting_id != nil %>
+      <% if slot.meeting != nil %>
         <p class="btn-danger">Already booked</p>
       <% else %>
-        <%= link_to "Book this slot now", new_meeting_path, class: "btn-success" %>
-      <% end %>
-
-      <% if current_user == slot.teacher %>
-        <%= link_to "Cancel this slot", user_slot_path(@user), method: :delete %>
+      <%= link_to "Book this slot", new_meeting_path, class: "btn-primary" %>
+        <% if current_user == slot.teacher %>
+          <%= link_to "Remove this slot", user_slot_path(@user, slot), :method => :delete %>
+        <% end %>
       <% end %>
     <% end %>
 
