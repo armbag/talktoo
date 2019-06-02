@@ -13,7 +13,9 @@
 
 
     <%= render 'users/simple_calendar', slots: @slots, slot: @slot, user: @user %>
-
+    <% if @user == current_user %>
+      <%= render 'slots/form', user: @user, slot: @slot %>
+    <% end %>
 
 <h2>Any questions?</h2>
 <!-- <div class="container"> -->
@@ -50,5 +52,14 @@
     <% end %>
   </div>
 </div>
+
+<div class="container">
+  <div class="content-block">
+    <div id="reviews">
+      <% @user.received_reviews.each do |r| %>
+        <%= render 'reviews/show', review: r %>
+      <% end %>
+    </div>
+  </div>
 
 <%= render 'reviews/form', user: @user, review: @review %>
