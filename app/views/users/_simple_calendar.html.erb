@@ -1,0 +1,16 @@
+<%= month_calendar events: slots do |date, slots| %>
+<%= date.day %>
+
+  <% slots.each do |slot| %>
+    <br>
+    <% if slot.meeting != nil %>
+      <p class="btn-danger">Already booked</p>
+    <% else %>
+      <%= link_to "Book this slot", new_meeting_path, class: "btn-primary" %>
+      <% if current_user == slot.teacher %>
+        <%= link_to "Remove this slot", user_slot_path(@user, slot), :method => :delete %>
+      <% end %>
+
+    <% end %>
+  <% end %>
+<% end %>

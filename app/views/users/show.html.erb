@@ -11,6 +11,7 @@
       <p>Availablity</p>
 
   <!-- </div> -->
+
     <% @user.slots.each do |slot| %>
       <br>
       <%= slot.start_format %>
@@ -24,6 +25,8 @@
       <% end %>
     <% end %>
 
+
+    <%= render 'users/simple_calendar', slots: @slots %>
 
 <%= simple_form_for [@user, @slot] do |f| %>
         <%= f.input :start, input_html: {placeholder: 1} %>
@@ -68,4 +71,3 @@
     <% end %>
   </div>
 </div>
-
