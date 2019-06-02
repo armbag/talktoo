@@ -14,9 +14,15 @@ class ReviewsController < ApplicationController
     @review.reviewer_id = current_user.id
     @review.reviewed_id = @user.id
     if @review.save
-      redirect_to user_path(@user)
+      respond_to do |format|
+        format.html { redirect_to user_path(@user) }
+        format.js
+      end
     else
-      render 'users/show'
+      respond_to do |format|
+        format.html { render 'users/show' }
+        format.js
+      end
     end
   end
 
@@ -25,6 +31,7 @@ class ReviewsController < ApplicationController
 
   def edit
   end
+
 
   private
 

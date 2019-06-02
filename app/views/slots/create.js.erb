@@ -1,0 +1,16 @@
+function refreshForm2(innerHTML) {
+  const newSlotForm = document.querySelector('#new_slot');
+  newSlotForm.innerHTML = innerHTML;
+}
+
+function addSlot(slotHTML) {
+  const slots = document.querySelector('#slots');
+  slots.insertAdjacentHTML('beforeend', slotHTML);
+}
+
+<% if @slot.errors.any? %>
+  refreshForm2('<%= j render "slots/form", user: @user, slot: @slot %>');
+<% else %>
+  addSlot('<%= j render "slots/show", slot: @slot %>');
+  refreshForm2('<%= j render "slots/form", user: @user, slot: Slot.new %>');
+<% end %>
