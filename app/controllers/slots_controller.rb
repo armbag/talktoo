@@ -19,9 +19,10 @@ class SlotsController < ApplicationController
   end
 
   def destroy
+    @slot = Slot.find(params[:id])
     if @slot.teacher == current_user
       @slot.destroy
-      redirect_to user_path, notice: 'slot was successfully deleted.'
+      redirect_to user_path(current_user), notice: 'slot was successfully deleted.'
     end
   end
 

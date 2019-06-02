@@ -13,6 +13,20 @@
   <!-- </div> -->
 
 
+    <% @user.slots.each do |slot| %>
+      <br>
+      <%= slot.start_format %>
+      <% if slot.meeting != nil %>
+        <p class="btn-danger">Already booked</p>
+      <% else %>
+      <%= link_to "Book this slot", new_meeting_path, class: "btn-primary" %>
+        <% if current_user == slot.teacher %>
+          <%= link_to "Remove this slot", user_slot_path(@user, slot), :method => :delete %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+
     <%= render 'users/simple_calendar', slots: @slots %>
 
 <%= simple_form_for [@user, @slot] do |f| %>
