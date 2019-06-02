@@ -1,5 +1,5 @@
 <div class="bg-profile">
-<!--   <div class="container"> -->
+  <!--   <div class="container"> -->
     <div class="content-block">
 
 
@@ -8,10 +8,9 @@
 
 
       <h1></h1>
-      <p>Avaliablity</p>
+      <p>Availablity</p>
 
   <!-- </div> -->
-
 
     <% @user.slots.each do |slot| %>
       <br>
@@ -33,11 +32,11 @@
         <%= f.input :start, input_html: {placeholder: 1} %>
         <%= f.input :end, input_html: {placeholder: "#{DateTime.now}"} %>
         <%= f.input :price, input_html: {placeholder: "$"} %>
-        <%= f.submit "Add this slot to your profile", class: "btn-pets btn-block" %>
+        <%= f.submit "Add this slot to your profile", class: "btn btn-success" %>
       <% end %>
 
 
-<h2>ask a question</h2>
+<h2>Any questions?</h2>
 <!-- <div class="container"> -->
   <div class="row">
     <div class="col-sm-12 col-sm-offset-3">
