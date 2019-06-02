@@ -8,24 +8,22 @@ class UsersController < ApplicationController
   end
 
   def index
-      @users = User.all
-    # if params[:taggings] != nil
-    #   @users = Tag.find(params[:tagging][:tag_id][1].to_i).users
-    #   break
-    # else
-      @users = @users.where(native_language: params[:native_language]) unless params[:native_language].blank?
+    @users = User.all
+    @users = @users.where(native_language: params[:native_language]) unless params[:native_language].blank?
 
-      unless params[:tag_id].blank?
-        @users = @users.joins(:taggings).where(taggings: {tag_id: params[:tag_id]})
-        @users = @users.all.uniq.select { |u| (u.tags.ids & params[:tag_id].map(&:to_i)).size == params[:tag_id].size }
-      end
+    unless params[:tag_id].blank?
+      @users = @users.joins(:taggings).where(taggings: {tag_id: params[:tag_id]})
+      @users = @users.all.uniq.select { |u| (u.tags.ids & params[:tag_id].map(&:to_i)).size == params[:tag_id].size }
+    end
 
   end
 
   def show
     @user = User.find(params[:id])
-    @slots = User.find(params[:id]).slots
+    @slots = @user.slots
     @slot = Slot.new
+    @reviews = @user.received_reviews
+    @review = Review.new
     @chat_room = ChatRoom.first
   end
 
@@ -54,5 +52,4 @@ class UsersController < ApplicationController
   def user_params
   params.require(:user).permit(:name, :bio, :avatar, :email, :native_language, :specialty, :taggings)
   end
-
 end

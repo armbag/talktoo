@@ -7,33 +7,12 @@
       <%= cl_image_tag(@user.avatar, :width => 100, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
 
 
-      <h1></h1>
-      <p>Availablity</p>
+
 
   <!-- </div> -->
 
-    <% @user.slots.each do |slot| %>
-      <br>
-      <%= slot.start_format %>
-      <% if slot.meeting != nil %>
-        <p class="btn-danger">Already booked</p>
-      <% else %>
-      <%= link_to "Book this slot", new_meeting_path, class: "btn-primary" %>
-        <% if current_user == slot.teacher %>
-          <%= link_to "Remove this slot", user_slot_path(@user, slot), :method => :delete %>
-        <% end %>
-      <% end %>
-    <% end %>
 
-
-    <%= render 'users/simple_calendar', slots: @slots %>
-
-<%= simple_form_for [@user, @slot] do |f| %>
-        <%= f.input :start, input_html: {placeholder: 1} %>
-        <%= f.input :end, input_html: {placeholder: "#{DateTime.now}"} %>
-        <%= f.input :price, input_html: {placeholder: "$"} %>
-        <%= f.submit "Add this slot to your profile", class: "btn btn-success" %>
-      <% end %>
+    <%= render 'users/simple_calendar', slots: @slots, slot: @slot, user: @user %>
 
 
 <h2>Any questions?</h2>
@@ -55,19 +34,21 @@
     </div>
   </div>
 <!-- </div> -->
-  <% content_for :after_js do %>
-    <script>
-      // scrollLastMessageIntoView();
-      App['chat_room_<%= @chat_room.id %>'] = App.cable.subscriptions.create({ channel: 'ChatRoomsChannel', chat_room_id: <%= @chat_room.id %> }, {
-        received: (data) => {
-          if (data.current_user_id !== <%= current_user.id %>) {
-            const messagesContainer = document.querySelector('.messages');
-            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
-            scrollLastMessageIntoView();
+    <% content_for :after_js do %>
+      <script>
+        // scrollLastMessageIntoView();
+        App['chat_room_<%= @chat_room.id %>'] = App.cable.subscriptions.create({ channel: 'ChatRoomsChannel', chat_room_id: <%= @chat_room.id %> }, {
+          received: (data) => {
+            if (data.current_user_id !== <%= current_user.id %>) {
+              const messagesContainer = document.querySelector('.messages');
+              messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+              scrollLastMessageIntoView();
+            }
           }
-        }
-      })
+        })
       </script>
     <% end %>
   </div>
 </div>
+
+<%= render 'reviews/form', user: @user, review: @review %>

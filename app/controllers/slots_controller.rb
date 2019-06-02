@@ -10,6 +10,7 @@ class SlotsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @slot = Slot.new(slot_params)
+    @slot.end = @slot.start + 15.minutes
     @slot.teacher = @user
     if @slot.save
       redirect_to user_path(@user), notice: 'slot was successfully created.'
