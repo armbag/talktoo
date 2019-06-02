@@ -3,9 +3,14 @@
 
   <% slots.each do |slot| %>
     <br>
-    <%= link_to slot.start_format_2, new_meeting_path, class: "btn btn-primary" %>
-    <%= link_to "X", user_slot_path(@user, slot), method: :delete, class: "btn btn-danger"  %>
+    <% if slot.meeting != nil %>
+      <p class="btn-danger">Already booked</p>
+    <% else %>
+      <%= link_to "Book this slot", new_meeting_path, class: "btn-primary" %>
+      <% if current_user == slot.teacher %>
+        <%= link_to "Remove this slot", user_slot_path(@user, slot), :method => :delete %>
+      <% end %>
 
+    <% end %>
   <% end %>
 <% end %>
-
