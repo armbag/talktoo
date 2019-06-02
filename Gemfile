@@ -25,6 +25,7 @@ gem 'popper_js', '~> 1.11.1'
 gem 'bootstrap', '4.0.0.alpha6'
 gem 'strftime', '~> 1.0'
 gem "simple_calendar", "~> 2.0"
+gem "awesome_print"
 
 
 source 'http://insecure.rails-assets.org' do

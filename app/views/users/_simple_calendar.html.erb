@@ -1,7 +1,11 @@
-<%= month_calendar events: slots do |date, slots| %>
+<p>Availablity</p>
+
+<%= week_calendar events: slots do |date, slots| %>
 <%= date.day %>
 
   <% slots.each do |slot| %>
+    <br>
+    <%= slot.start_format_2 %>
     <br>
     <% if slot.meeting != nil %>
       <p class="btn-danger">Already booked</p>
@@ -12,5 +16,14 @@
       <% end %>
 
     <% end %>
+  <% end %>
+<% end %>
+<br>
+
+<% if user == current_user %>
+  <%= simple_form_for [@user, @slot] do |f| %>
+    <%= f.input :start, input_html: {placeholder: "#{DateTime.now}"} %>
+    <%= f.input :price, input_html: {placeholder: "$"} %>
+    <%= f.submit "Add this slot to your profile", class: "btn btn-success" %>
   <% end %>
 <% end %>
