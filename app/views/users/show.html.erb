@@ -1,23 +1,27 @@
 <div class="bg-profile">
-<!--   <div class="container"> -->
+  <!--   <div class="container"> -->
     <div class="content-block">
- 
+
 
       <h3 class="text-center">Welcome to <%= @user.name %>'s page!</h3>
       <%= cl_image_tag(@user.avatar, :width => 100, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
 
 
       <h1></h1>
-      <p>Avaliablity</p>
+      <p>Availablity</p>
 
   <!-- </div> -->
-
     <% @user.slots.each do |slot| %>
       <br>
       <%= slot.start_format %>
-      <%= link_to "Book this slot", new_meeting_path, class: "btn-primary" %>
+      <% if slot.meeting_id != nil %>
+        <p class="btn-danger">Already booked</p>
+      <% else %>
+        <%= link_to "Book this slot now", new_meeting_path, class: "btn-success" %>
+      <% end %>
+
       <% if current_user == slot.teacher %>
-        <%= link_to "Remove this slot", user_slot_path(@user), method: :delete %>
+        <%= link_to "Cancel this slot", user_slot_path(@user), method: :delete %>
       <% end %>
     <% end %>
 
@@ -26,11 +30,11 @@
         <%= f.input :start, input_html: {placeholder: 1} %>
         <%= f.input :end, input_html: {placeholder: "#{DateTime.now}"} %>
         <%= f.input :price, input_html: {placeholder: "$"} %>
-        <%= f.submit "Add this slot to your profile", class: "btn-pets btn-block" %>
+        <%= f.submit "Add this slot to your profile", class: "btn btn-success" %>
       <% end %>
 
 
-<h2>ask a question</h2>
+<h2>Any questions?</h2>
 <!-- <div class="container"> -->
   <div class="row">
     <div class="col-sm-12 col-sm-offset-3">
