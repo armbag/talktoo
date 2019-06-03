@@ -1,0 +1,16 @@
+<h1>Purchase of lesson with <%= @meeting.slot.teacher.name %></h1>
+<%= form_tag new_user_meeting_payment_path(current_user, @meeting) do %>
+  <article>
+    <label class="amount">
+      <span>Amount: <%= humanized_money_with_symbol(@meeting.price) %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
+    data-name="My LESSON"
+    data-email="<%= current_user.email %>"
+    data-description="Lesson with <%= @meeting.slot.teacher.name %>"
+    data-amount="<%= @meeting.price_cents %>"
+    data-currency="<%= @meeting.price.currency %>"></script>
+<% end %>
