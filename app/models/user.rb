@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :slots, foreign_key: "teacher_id", dependent: :destroy
   has_many :meetings_as_teacher, through: :slots, source: :teacher
 
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
   def self.tagged_with(name)
