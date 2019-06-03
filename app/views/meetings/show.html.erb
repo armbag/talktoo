@@ -1,2 +1,8 @@
-<h1>Meetings#show</h1>
-<p>Find me in app/views/meetings/show.html.erb</p>
+<h1>Recap</h1>
+
+
+<p>You're about to book a meeting wiht <%= @meeting.slot.teacher.name %> the <%= @meeting.slot.start %></p>
+<br>
+
+<%= link_to "Confirm", new_user_meeting_payment_path(current_user, @meeting) %>
+<p>Confirm to continue</p>
