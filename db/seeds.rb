@@ -226,6 +226,8 @@ user21 = User.create!({
   avatar: File.open("#{Rails.root}/app/assets/images/armen_photo.jpg")
 })
 
+#Taggings Seeds
+Rake::Task['db:taggings'].invoke
 
 # Slots Seeds
 Rake::Task['db:slots'].invoke
