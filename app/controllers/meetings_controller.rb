@@ -1,7 +1,7 @@
 class MeetingsController < ApplicationController
 
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
     @meetings_as_teacher = @user.meetings_as_student
     @meetings_as_student = @user.meetings_as_teacher
   end

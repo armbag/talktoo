@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :meetings_as_student, class_name: "Meeting", foreign_key: "student_id", dependent: :destroy
 
   has_many :slots, foreign_key: "teacher_id", dependent: :destroy
-  has_many :meetings_as_teacher, through: :slots, source: :teacher
+  has_many :meetings_as_teacher, class_name: "Meeting", through: :slots, source: :meeting
 
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
@@ -27,6 +27,10 @@ class User < ApplicationRecord
   def self.tag_counts
     Tag.select('tags.*, count(taggings.tag_id) as count').joins(:taggings).group('taggings.tag_id')
   end
+
+  # def meetings_as_teacher
+  #   Meeting.where(teacher_id: id)
+  # end
 
   def tag_list
     tags.map(&:name).join(', ')

@@ -1,18 +1,15 @@
 
 <h2>as a student</h2>
-<% @meetings_as_student.each do |teacher| %>
-  <% teacher.slots.each do |slot| %>
-     <p><%= slot.start_format %> <br>with <%= @user.name %></p>
+<% @meetings_as_student.each do |meeting| %>
+     <p><%= meeting.slot.start_format %> <br>with <%= meeting.slot.teacher.name %></p>
   <% end %>
-<% end %>
+
 
 <h1>As a teacher</h1>
 
-<% @meetings_as_teacher.each do |student| %>
-  <% student.slots.each do |slot| %>
-     <p><%= slot.start_format_2 %><br>with <%= @user.name %></p>
+<% @meetings_as_teacher.each do |meeting| %>
+     <p><%= meeting.slot.start_format %> <br>with <%= meeting.student.name %></p>
   <% end %>
-<% end %>
 
 
 
