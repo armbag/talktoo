@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :meetings_as_student, class_name: "Meeting", foreign_key: "student_id", dependent: :destroy
 
   has_many :slots, foreign_key: "teacher_id", dependent: :destroy
-  has_many :meetings_as_teacher, through: :slots
+  has_many :meetings_as_teacher, through: :slots, source: :teacher
 
   has_many :taggings
   has_many :tags, through: :taggings

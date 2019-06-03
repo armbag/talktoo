@@ -2,7 +2,7 @@
 <div class="container">
   <div class="content-block">
     <%= simple_form_for([ user, review ], remote: true) do |form| %>
-      <%= form.input :comment, as: :text, class: "title" %>
+      <%= form.input :comment, as: :text %>
       <%= form.input :rating, as: :integer %>
       <%= form.submit "Add your review", class: "btn btn-success" %>
     <% end %>

@@ -1,2 +1,7 @@
-<h1>Meetings#new</h1>
-<p>Find me in app/views/meetings/new.html.erb</p>
+<h2>What do you want to talk about?</h2>
+
+<%= simple_form_for([ @user, @meeting ]) do |form| %>
+  <%= form.input :topic, as: :text %>
+  <%= form.input :slot_id, :as => :hidden, :input_html => { :value => @slot_id} %>
+  <%= form.submit "Confirm your booking", class: "btn btn-success" %>
+<% end %>
