@@ -1,4 +1,7 @@
 class SlotsController < ApplicationController
+  skip_before_action :authenticate_user!
+
+
   def new
     @slot = Slot.new
   end
@@ -12,24 +15,23 @@ class SlotsController < ApplicationController
     @slot = Slot.new(slot_params)
     @slot.end = @slot.start + 15.minutes
     @slot.teacher = @user
-    # if @slot.save
-    #   redirect_to user_path(@user), notice: 'slot was successfully created.'
-    # else
-    #   render :new
-    # end
     if @slot.save
       respond_to do |format|
-        raise
         format.html { redirect_to user_path(@user) }
         format.js  # <-- will render `app/views/slots/create.js.erb`
       end
     else
       respond_to do |format|
-        raise
         format.html { render 'users/show' }
         format.js  # <-- idem
       end
     end
+  end
+
+  def update
+    @slot = Slot.find(params[:id])
+    @slot.meeting_id =
+    @user = User.find(params[:user_id])
   end
 
   def destroy

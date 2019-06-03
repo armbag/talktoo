@@ -5,7 +5,7 @@ function refreshForm2(innerHTML) {
 
 function addSlot(slotHTML) {
   const slots = document.querySelector('#slots');
-  slots.insertAdjacentHTML('beforeend', slotHTML);
+  slots.innerHTML = slots.innerHTML + slotHTML;
 }
 
 <% if @slot.errors.any? %>
