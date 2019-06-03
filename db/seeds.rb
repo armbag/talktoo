@@ -232,7 +232,6 @@ Rake::Task['db:taggings'].invoke
 # Slots Seeds
 Rake::Task['db:slots'].invoke
 
-
 # Meetings Seeds
 Rake::Task['db:meetings'].invoke
 
