@@ -1,1 +1,35 @@
+.home-cards {
+  padding-top: 140px;
+  width:100%;
+  height: 600px;
+  text-align: center;
+  box-shadow: 0 0 5px rgb(230,230,230);
+  border-radius:4px;
+  margin-top: 50px;
+  color:#ffffff;
+  background: $gradient;
+  color:#ffffff;
+  padding-bottom: 160px;
+  margin-bottom:200px;
+}
 
+.blockquote {
+  quotes: none;
+  font-size: 52px;
+  line-height: 62px;
+  font-family: Garamond;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.card-trip-user img {
+  margin-top: 46px;
+  width:100px;
+  height:100px;
+
+}
+
+.main-title {
+  color:black;
+}
