@@ -19,21 +19,16 @@ ChatRoom.destroy_all
 
 ChatRoom.create(name: "general")
 
-recipe = Tag.create(name: "Recipe")
-travel = Tag.create(name: "Travel")
-fashion = Tag.create(name: "Fashion/Beauty")
-humour = Tag.create(name: "Humour")
-
-
+# Tags Seeds
+Rake::Task['db:tags'].invoke
 
 # User Seeds
 user1 = User.create!({
-  name: Faker::Name.female_first_name,
-  email: Faker::Internet.free_email,
+  name: "Julia",
+  email: "julia@gmail.com",
   password: "secret",
   bio: "Hi! I teach while I run my own small business. Coffee geek. Avid travel evangelist. Professional gamer. Devoted explorer. Proud web aficionado.",
   native_language: "English",
-  specialty: "business",
   remote_avatar_url: "https://images.unsplash.com/photo-1476493279419-b785d41e38d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
 })
 
@@ -43,7 +38,6 @@ user2 = User.create!({
   password: "secret",
   bio: "Award-winning pop culture buff. Subtly charming social media enthusiast. Falls down a lot.",
   native_language: "English",
-  specialty: "business",
   remote_avatar_url: "https://images.unsplash.com/photo-1523598455533-144bae6cf56e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1036&q=80"
 })
 
@@ -53,7 +47,6 @@ user3 = User.create!({
   password: "secret",
   bio: "Hi! I teach while I run my own small business. Coffee geek. Avid travel evangelist. Professional gamer. Devoted explorer. Proud web aficionado.",
   native_language: "English",
-  specialty: "business",
   remote_avatar_url: "https://images.unsplash.com/photo-1551863863-e01bbf274ef6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
 })
 
@@ -63,7 +56,6 @@ user4 = User.create!({
   password: "secret",
   bio: "Award-winning pop culture buff. Subtly charming social media enthusiast. Falls down a lot.",
   native_language: "English",
-  specialty: "business",
   remote_avatar_url: "https://images.unsplash.com/photo-1528900403525-dc523d4f18d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
 })
 
@@ -73,7 +65,6 @@ user5 = User.create!({
   password: "secret",
   bio: "Hi! I teach while I run my own small business. Coffee geek. Avid travel evangelist. Professional gamer. Devoted explorer. Proud web aficionado.",
   native_language: "English",
-  specialty: "business",
   remote_avatar_url: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
 })
 
@@ -93,7 +84,6 @@ user7 = User.create!({
   password: "secret",
   bio: "Hi! I teach while I run my own small business. Coffee geek. Avid travel evangelist. Professional gamer. Devoted explorer. Proud web aficionado.",
   native_language: "English",
-  specialty: "business",
   remote_avatar_url: "https://images.unsplash.com/photo-1541943181603-d8fe267a5dcf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=612&q=80"
 })
 
@@ -227,9 +217,14 @@ user20 = User.create!({
   remote_avatar_url: "https://images.unsplash.com/photo-1520409364224-63400afe26e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=658&q=80"
 })
 
-user18.tags = [ travel, humour ]
-user19.tags = [ travel ]
-
+user21 = User.create!({
+  name: "Armen",
+  email: "armen@gmail.com",
+  password: "secret",
+  bio: "Web entrepreneur and full-stack developper. Beer guru and travel enthusiast.",
+  native_language: "French",
+  avatar: File.open("#{Rails.root}/app/assets/images/armen_photo.jpg")
+})
 
 
 # Slots Seeds

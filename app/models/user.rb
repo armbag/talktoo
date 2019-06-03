@@ -17,8 +17,8 @@ class User < ApplicationRecord
   has_many :slots, foreign_key: "teacher_id", dependent: :destroy
   has_many :meetings_as_teacher, through: :slots
 
-  has_many :taggings
-  has_many :tags, through: :taggings
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings, dependent: :destroy
 
   def self.tagged_with(name)
     Tag.find_by!(name: name).posts
