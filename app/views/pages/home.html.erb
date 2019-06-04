@@ -4,28 +4,25 @@
   <div class="banner">
     <div class="container">
       <div>
-       <h1>Helping busy professionals practice foreign languages</h1>
-       <p>Book one-on-one live video conversations with native speakers who are passionate and knowledgeable about the same things you are.</p>
+        <h1>Talk the talk. Foreign language practice for busy professionals.</h1>
+        <p>Book one-on-one live video conversations with native speakers who are passionate and knowledgeable about the same things you are.</p>
       </div>
-        <%= form_tag(users_path, method: :get) do %>
-          <div class="search-form-control form-group">
-            <%= text_field_tag :native_language,
-                                params[:native_language],
-                                class: "form-control",
-                                placeholder:'Which language do you want to practice?'%>
-            <%= submit_tag "start", class: "btn-talk-home" %>
-          </div>
-        <% end %>
+<br>
+      <div class="fancysearch">
+        <span>Speak in</span>
+          <input type='text' id="search" class="searchbar" />
+        <span>about</span>
+        <input type='text' id="search2" class="searchbar" />
+      </div>
+      <div>
+        <%= submit_tag "Find native speakers", class: "btn-talk-fancy" %>
       </div>
     </div>
-  <!-- <div class="human1"><%= image_tag "humans_example.png", width: 300 %></div> -->
-  <div class="bg-slant">
   </div>
+  <!-- <div class="human1"><%= image_tag "humans_example.png", width: 300 %></div> -->
 </div>
 
 
-
-
 <br>
 <br>
 <br>
@@ -55,12 +52,19 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 <div>
   <div class="info-content mt-4 p-3">
 
     <a class="info-card info-card-1">
-      <div class="front" style="background-image:(standing-9.png)">
+      <div class="front">
         <h2>Talk to your peers</h2>
       </div>
       <div class="back">
@@ -94,31 +98,22 @@
   </div>
 </div>
 
-<div class="bg-profile">
-  <div>
-    <h2 class="text-center mt-4 p-3">How it works</h2>
-    <p class="description text-center">You already know how to speak a foreign language. We're here to help you practice it.</p>
-    <img src="https://img.icons8.com/color/48/000000/chat.png">
+
+<div class="info-content mt-4 p-3">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Choose a language and a topic to find native speakers whose interests and specialization match yours!
   </div>
 
-  <div>
-    <h3>Choose a language and a topic to find native speakers whose interests and specialization match yours!</h3>
-    <img src="https://img.icons8.com/color/48/000000/popular-topic.png">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    View your preferred conversation partners’ calendars and book the time slots that suit your schedule.
   </div>
 
-  <div class="content-block">
-    <h3>View your preferred conversation partners’ calendars and book the time slots that suit your schedule.</h3>
-    <img src="https://img.icons8.com/color/48/000000/property-time.png">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Message your conversation partner in advance to help him or her get ready for your session.
   </div>
 
-  <div class="content-block">
-    <h3>Message your conversation partner in advance to help him or her get ready for your session.</h3>
-  <img src="https://img.icons8.com/color/48/000000/message-group.png">
-  </div>
-
-  <div class="content-block">
-    <h3>Join your video call on the confirmed date and time and prepare to take your foreign language skills to the next level!</h3>
-    <img src="https://img.icons8.com/color/48/000000/tv-show.png">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Join your video call on the confirmed date and time and prepare to take your foreign language skills to the next level!
   </div>
 </div>
 

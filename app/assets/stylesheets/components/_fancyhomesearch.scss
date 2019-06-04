@@ -1,0 +1,43 @@
+.fancysearch {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  color: $darkblue;
+  font-size: 25px;
+  background: #fbf7ff9e;
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 1% 2%;
+}
+
+.searchbar {
+  width: 300px;
+  padding: 10px;
+}
+
+input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 2px solid #FBF7FF;
+  color: #FBF7FF;
+}
+
+.btn-talk-fancy {
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+  color: white;
+  padding: 8px 24px;
+  margin-top: 16px;
+  border-radius: 4px;
+  background: $darkblue;
+  transition: background 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.btn-talk-fancy:hover {
+  background: #00aee4;
+  color: white;
+}
+
+
