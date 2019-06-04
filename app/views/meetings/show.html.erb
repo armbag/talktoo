@@ -4,5 +4,6 @@
 <p>You're about to book a meeting wiht <%= @meeting.slot.teacher.name %> the <%= @meeting.slot.start %></p>
 <br>
 
-<%= link_to "Confirm", new_user_meeting_payment_path(current_user, @meeting) %>
+<%= link_to "Confirm", new_meeting_payment_path(@meeting) %>
 <p>Confirm to continue</p>
+
