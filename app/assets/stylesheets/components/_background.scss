@@ -12,7 +12,17 @@
   height: 750px;
 }
 
+.parent-show{
+  display: flex;
+  height: 100vh;
+}
+
+#Calendar {
+  flex-grow: 1;
+}
+
 .bg-profile {
+  position: fixed;
   background:$gradient;
   width:100%;
   height:100%;
@@ -22,7 +32,6 @@
 .bg-profile-float {
  background:$gradient;
  width:30%;
- height:30%;
 }
 
  .bg-slant{
