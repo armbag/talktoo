@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index] do
     resources :videos, only: [:show]
-    resources :meetings, only: [:create, :new, :destroy, :index, :show] do
+    resources :meetings, only: [:destroy, :index, :show] do
       resources :slots, only: [:update]
     end
     resources :reviews, only: [:index, :create, :new, :update, :edit]
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :chat_rooms, only: [:create, :new]
   end
 
-  resources :meetings, only: [] do
+  resources :meetings, only: [:create, :new] do
     resources :payments, only: [:new, :create]
   end
 
