@@ -6,6 +6,22 @@
   display: grid;
 }
 
+
+.user-content h2 {
+  font-size: 42px;
+  line-height: 44px;
+}
+
+.user-content h3 {
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.user-content p {
+  font-size: 20px;
+  line-height: 28px;
+  }
+
 .user-cards {
   flex-grow: 1;
   padding:8px;
@@ -48,7 +64,7 @@
 
 
 .a-cards {
-  width:400px;
+  width:500px;
   height:400px;
   border-radius: 4px;
   overflow: hidden;
