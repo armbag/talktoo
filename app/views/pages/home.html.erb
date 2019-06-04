@@ -8,45 +8,33 @@
         <p>Book one-on-one live video conversations with native speakers who are passionate and knowledgeable about the same things you are.</p>
       </div>
 <br>
+
+<%= form_tag(users_path, method: :get) do %>
       <div class="fancysearch">
         <span>Speak in</span>
-          <input type='text' id="search" class="searchbar" />
+        <%= text_field_tag :native_language,
+                            params[:native_language],
+                            class: "searchbar",
+                            id:"search"
+                            %>
         <span>about</span>
-        <input type='text' id="search2" class="searchbar" />
-      </div>
-      <div>
+        <%= text_field_tag :tag_id,
+                            params[:tag_id],
+                            class: "searchbar",
+                            id:"search2"
+                            %>
         <%= submit_tag "Find native speakers", class: "btn-talk-fancy" %>
       </div>
+    <% end %>
+
+
     </div>
   </div>
   <!-- <div class="human1"><%= image_tag "humans_example.png", width: 300 %></div> -->
 </div>
 
-
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 <br>
 <br>
 <br>
@@ -59,12 +47,80 @@
 <br>
 <br>
 
+<br>
 
-<div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<br>
+<br>
+<br>
+
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+
+
+
+<div class="container-fluid p-4">
+  <div class="row justify-content-center">
+    <div class="user-content">
+      <div class="about-cards">
+        <div class="a-cards">
+          <%= cl_image_tag(image_path("discussion.svg")) %>
+            <p>Choose a language and a topic to find native speakers whose interests and specialization match yours!</p>
+          </div>
+
+
+        <div class="a-cards">
+          <%= cl_image_tag(image_path("gears.svg")) %>
+          <p>View your preferred conversation partners’ calendars and book the time slots that suit your schedule.</p>
+          </div>
+        </div>
+
+
+      <div class="about-cards">
+        <div class="a-cards">
+          <%= cl_image_tag(image_path("planning.svg")) %>
+          <p>Message your conversation partner in advance to help him or her get ready for your session.</p>
+          </div>
+
+
+        <div class="a-cards">
+          <%= cl_image_tag(image_path("rocket.svg")) %>
+          <p> Join your video call on the confirmed date and time and prepare to take your foreign language skills to the next level!</p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
   <div class="info-content mt-4 p-3">
 
-    <a class="info-card info-card-1">
-      <div class="front">
+    <div class="info-card info-card-1">
+      <div class="front info-card">
         <h2>Talk to your peers</h2>
       </div>
       <div class="back">
@@ -72,10 +128,10 @@
           <p>Practice speaking a foreign language with a native speaker who shares your interest in business, politics or the latest pop culture.</p>
         </div>
       </div>
-    </a>
+    </div>
 
-    <a class="info-card info-card-2">
-      <div class="front" style="background-image:">
+    <div class="info-card info-card-2">
+      <div class="front info-card">
         <h2>Customize your conversations</h2>
       </div>
       <div class="back">
@@ -83,10 +139,10 @@
           <p>Have conversations that matter to you. Specify topic preferences and get relevant conversation prompts.</p>
         </div>
       </div>
-    </a>
+    </div>
 
     <a class="info-card info-card-3">
-      <div class="front" style="background-image:">
+      <div class="front info-card">
         <h2>Go at your own pace</h2>
       </div>
       <div class="back">
@@ -97,26 +153,6 @@
     </a>
   </div>
 </div>
-
-
-<div class="info-content mt-4 p-3">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Choose a language and a topic to find native speakers whose interests and specialization match yours!
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    View your preferred conversation partners’ calendars and book the time slots that suit your schedule.
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Message your conversation partner in advance to help him or her get ready for your session.
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Join your video call on the confirmed date and time and prepare to take your foreign language skills to the next level!
-  </div>
-</div>
-
 
 <div class="container p-4">
   <div class="mx-auto mt-3 p-3">
@@ -134,7 +170,6 @@
               <blockquote class="blockquote text-center">"Lifechanging. I'm a French speaker and Talktoo helped me pitch my startup idea in English to American investors."
               <p class="blockquote-footer text-center">Max, France</p>
               </blockquote>
-              <p class="card-trip-user"> <%= image_tag "https://images.unsplash.com/photo-1554453433-9af917b6f571?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=80&q=50", :width => 40, :height => 40, :crop => :thumb, :gravity => :face, class:"avatar-bordered" %></p>
             </div>
           </div>
         </div>
@@ -151,7 +186,6 @@
               <blockquote class="blockquote text-center p-4 mt-4">"With Talktoo, I was able to practice interviewing in French... and I got the job!"
               <p class="text-center blockquote-footer">Elle, Canada</p>
               </blockquote>
-              <p class="card-trip-user"> <%= image_tag "https://images.unsplash.com/photo-1493732839258-ca76fb5d09ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=80&q=80", :width => 40, :height => 40, :crop => :thumb, :gravity => :face, class: "card-trip-user avatar-bordered" %></p>
             </div>
           </div>
         </div>
@@ -166,7 +200,6 @@
               <blockquote class="blockquote text-center">"Thanks to Talktoo, I can speak fluently about gaming in English and connect with an international community!
               <p class="blockquote-footer text-center">Cassandra, Italy</p>
               </blockquote>
-              <p class="card-trip-user"> <%= image_tag "https://images.unsplash.com/photo-1542080681-b52d382432af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=80&q=80", :width => 60, :height => 60, :crop => :thumb, :gravity => :face, class: "card-trip-user avatar-bordered" %></p>
             </div>
           </div>
         </div>

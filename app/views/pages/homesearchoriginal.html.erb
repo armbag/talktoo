@@ -7,7 +7,8 @@
       <div class="search-form-control form-group">
         <%= text_field_tag :native_language,
                             params[:native_language],
-                            class: "form-control",
+                            class: "searchbar",
+                            id:"search"
                             placeholder:'Which language do you want to practice?'%>
         <%= submit_tag "start", class: "btn-talk-home" %>
       </div>
