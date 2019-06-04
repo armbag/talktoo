@@ -26,6 +26,9 @@ gem 'bootstrap', '4.0.0.alpha6'
 gem 'strftime', '~> 1.0'
 gem "simple_calendar", "~> 2.0"
 gem "awesome_print"
+gem 'money-rails'
+gem 'stripe'
+
 
 
 source 'http://insecure.rails-assets.org' do

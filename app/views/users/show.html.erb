@@ -1,65 +1,113 @@
-<div class="bg-profile">
-  <!--   <div class="container"> -->
-    <div class="content-block">
+<div class="bg-profile-float">
+  <div class="user-cards">
+     <div class="u-cards">
+        <%= cl_image_tag(@user.avatar, :width => 300, :height => 300, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
+        <h3 class="text-center"><%= @user.name %></h3>
+        <span>4.8</span>
+        <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+      </div>
+  </div>
+</div>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Calendar')" id="defaultOpen">Calendar</button>
+  <button class="tablinks" onclick="openCity(event, 'About')">About</button>
+  <button class="tablinks" onclick="openCity(event, 'Reviews')">Reviews</button>
+  <button class="tablinks" onclick="openCity(event, 'Messages')">Messages</button>
+</div>
 
 
-      <h3 class="text-center">Welcome to <%= @user.name %>'s page!</h3>
-      <%= cl_image_tag(@user.avatar, :width => 100, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
-
-
-
-
-  <!-- </div> -->
-
-
+<div id="Calendar" class="tabcontent justify-content-center">
+  <h3 class="text-center">Calendar</h3>
+  <div class="justify-content-center text-center">
     <%= render 'users/simple_calendar', slots: @slots, slot: @slot, user: @user %>
     <% if @user == current_user %>
+      <h3 class="text-center">Add a new slot</h3>
       <%= render 'slots/form', user: @user, slot: @slot %>
-    <% end %>
-
-<h2>Any questions?</h2>
-<!-- <div class="container"> -->
-  <div class="row">
-    <div class="col-sm-12 col-sm-offset-3">
-      <div class="chat-header"><h4>#<%= @chat_room.name %></h4></div>
-      <div class="messages">
-        <% @chat_room.messages.each do |message| %>
-          <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
+      <br>
+      <% unless @user.meetings_as_student.empty?  %>
+        <p>These are your next classes : as a student </p>
+        <% @user.meetings_as_student.each do |meeting| %>
+          <p><%= link_to meeting.slot.start_format, user_video_path(current_user) %></p>
+          <p>with <%= meeting.slot.teacher.name %></p>
         <% end %>
-      </div>
-      <div id="create-message">
-        <%= simple_form_for [ @chat_room, Message.new ], remote: true, html: {autocomplete: "off" } do |f| %>
-          <%= f.input :content, label: false %>
-          <%= f.submit class: "btn btn-primary mt-2 btn-block" %>
+      <% end %>
+      <% unless @user.meetings_as_teacher.empty?  %>
+        <p>These are your next classes : as a teacher </p>
+        <% @user.meetings_as_teacher.each do |meeting| %>
+          <p><%= link_to meeting.slot.start_format, user_video_path(current_user, @video) %></p>
+          <p>with <%= meeting.slot.teacher.name %></p>
         <% end %>
-      </div>
-    </div>
-  </div>
-<!-- </div> -->
-    <% content_for :after_js do %>
-      <script>
-        // scrollLastMessageIntoView();
-        App['chat_room_<%= @chat_room.id %>'] = App.cable.subscriptions.create({ channel: 'ChatRoomsChannel', chat_room_id: <%= @chat_room.id %> }, {
-          received: (data) => {
-            if (data.current_user_id !== <%= current_user.id %>) {
-              const messagesContainer = document.querySelector('.messages');
-              messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
-              scrollLastMessageIntoView();
-            }
-          }
-        })
-      </script>
+      <% end %>
     <% end %>
   </div>
 </div>
 
-<div class="container">
-  <div class="content-block">
-    <div id="reviews">
-      <% @user.received_reviews.each do |r| %>
-        <%= render 'reviews/show', review: r %>
-      <% end %>
+    <div id="About" class="tabcontent text-center">
+      <h3>About</h3>
+        <p><%= @user.bio %></p>
+        <p>Interests</p>
+        <% @user.tags.each do |t| %>
+        <p class="tags"> <%= t.name %> </p>
+        <% end %>
+    </div>
+
+    <div id="Reviews" class="tabcontent text-center">
+      <h3>Reviews</h3>
+        <% @user.received_reviews.each do |r| %>
+          <%= render 'reviews/show', review: r %>
+        <% end %>
+        <% unless current_user == @user %>
+          <%= render 'reviews/form', user: @user, review: @review %>
+          <% end %>
+    </div>
+
+
+    <div id="Messages" class="tabcontent text-center">
+      <h3>Messages</h3>
+        <div class="row">
+          <div class="col-sm-12 col-sm-offset-3">
+             <div class="chat-header"><h4>#<%= @chat_room.name %></h4></div>
+              <div class="messages">
+                <% @chat_room.messages.each do |message| %>
+                  <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
+                <% end %>
+              </div>
+
+                <div id="create-message">
+                  <%= simple_form_for [ @chat_room, Message.new ], remote: true, html: {autocomplete: "off" } do |f| %>
+                  <%= f.input :content, label: false %>
+                  <%= f.submit class: "btn btn-primary mt-2 btn-block" %>
+                  <% end %>
+                </div>
+            </div>
+        </div>
+          <% content_for :after_js do %>
+            <script>
+              // scrollLastMessageIntoView();
+              App['chat_room_<%= @chat_room.id %>'] = App.cable.subscriptions.create({ channel: 'ChatRoomsChannel', chat_room_id: <%= @chat_room.id %> }, {
+                received: (data) => {
+                  if (data.current_user_id !== <%= current_user.id %>) {
+                    const messagesContainer = document.querySelector('.messages');
+                    messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+                    scrollLastMessageIntoView();
+                  }
+                }
+              })
+            </script>
+        <% end %>
+      </div>
     </div>
   </div>
+</div>
 
-<%= render 'reviews/form', user: @user, review: @review %>
+
+
+
+
+
+
+</div>
