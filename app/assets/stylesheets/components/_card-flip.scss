@@ -62,11 +62,9 @@
 }
 
 .flip-back {
-  background: #fff;
   border-left: 4px solid #167FFB;
   transform: rotateY(-180deg);
-  color:#000000;
-  background-color:#ffffff;
+  text-align:center;
   width:400px;
   height:300px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);

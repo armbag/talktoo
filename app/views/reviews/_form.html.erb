@@ -1,11 +1,11 @@
-<br>
-<div class="container">
-  <div class="content-block">
-    <%= simple_form_for([ user, review ], remote: true) do |form| %>
-    <p>Comments: <%= form.input :comment, as: :text %></p>
-    <p>Rating: <%= form.input :rating, as: :integer %></p>
 
-      <%= form.submit "Add your review", class: "btn btn-success" %>
+    <%= simple_form_for([ user, review ], remote: true) do |form| %>
+    <div class="justify-content-center">
+
+    <p class="review"><%= form.input :comment, as: :text %></p>
+    <p class="rating"><%= form.input :rating, as: :integer %></p>
+    </div>
+
+      <%= form.submit "Add your review", class: "btn btn-talk" %>
     <% end %>
-</div>
-</div>
+

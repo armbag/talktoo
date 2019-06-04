@@ -3,5 +3,5 @@
 <%= simple_form_for([ @user, @meeting ]) do |form| %>
   <%= form.input :topic, as: :text %>
   <%= form.input :slot_id, :as => :hidden, :input_html => { :value => @slot_id} %>
-  <%= form.submit "Confirm your booking", class: "btn btn-success" %>
+  <%= form.submit "Confirm your booking", class: "btn btn-talk" %>
 <% end %>

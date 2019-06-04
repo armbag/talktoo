@@ -25,22 +25,16 @@
   border-radius: 4px;
   padding:16px;
   overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: transparent;
   text-align: center;
+  color:#ffffff;
 }
 
 
 .u-cards img {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.u-cards img {
-  width: 100px;
-  height: 100px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
