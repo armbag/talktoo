@@ -12,10 +12,10 @@ require 'faker'
 Slot.destroy_all
 Tagging.destroy_all
 Tag.destroy_all
-User.destroy_all
 Review.destroy_all
 Message.destroy_all
 ChatRoom.destroy_all
+User.destroy_all
 
 ChatRoom.create(name: "general")
 
