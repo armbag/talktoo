@@ -35,6 +35,7 @@
 
         <% unless @user.meetings_as_student.empty?  %>
           <h3>My upcoming classes</h3>
+
           <% @user.meetings_as_student.each do |meeting| %>
 
             <%= link_to user_path(meeting.slot.teacher) do %>
@@ -55,15 +56,17 @@
             <% end %>
 
           <% end %>
+
         <% end %>
-      <% unless @user == current_user %>
-        <% unless @user.meetings_as_teacher.empty?  %>
-          <p>These are your next classes : as a teacher </p>
-          <% @user.meetings_as_teacher.each do |meeting| %>
-            <p><%= link_to meeting.slot.start_format, user_video_path(current_user, video_id: meeting.id) %></p>
-            <p>with <%= meeting.slot.teacher.name %></p>
-            <p><%= meeting.status %></p>
-      <% end %>
+
+        <% unless @user == current_user %>
+          <% unless @user.meetings_as_teacher.empty?  %>
+            <p>These are your next classes : as a teacher </p>
+            <% @user.meetings_as_teacher.each do |meeting| %>
+              <p><%= link_to meeting.slot.start_format, user_video_path(current_user, video_id: meeting.id) %></p>
+              <p>with <%= meeting.slot.teacher.name %></p>
+              <p><%= meeting.status %></p>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
