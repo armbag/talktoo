@@ -1,0 +1,40 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.user-content {
+  display: grid;
+}
+
+.user-cards {
+  flex-grow: 1;
+  padding:8px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+.user-cards a {
+  color: #00C5E0;
+  text-decoration: none;
+}
+
+
+.u-cards {
+  border-radius: 4px;
+  padding:16px;
+  overflow: hidden;
+  background: transparent;
+  text-align: center;
+  color:#ffffff;
+}
+
+
+.u-cards img {
+  width: 200px;
+  height: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
