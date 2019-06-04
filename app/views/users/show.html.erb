@@ -24,10 +24,13 @@
   <div id="Calendar" class="tabcontent justify-content-center">
     <h3 class="text-center">Calendar</h3>
     <div class="justify-content-center text-center">
-      <%= render 'users/simple_calendar', slots: @slots, slot: @slot, user: @user %>
+      <% unless @user == current_user %>
+        <%= render 'users/simple_calendar', slots: @slots, slot: @slot, user: @user %>
+      <% end %>
       <% if @user == current_user %>
-        <h3 class="text-center">Add a new slot</h3>
-        <%= render 'slots/form', user: @user, slot: @slot %>
+        <% unless @user == current_user %>
+          <%= render 'slots/form', user: @user, slot: @slot %>
+        <% end %>
         <br>
         <% unless @user.meetings_as_student.empty?  %>
           <p>These are your next classes : as a student </p>
@@ -37,12 +40,14 @@
             <p><%= meeting.status %></p>
           <% end %>
         <% end %>
+      <% unless @user == current_user %>
         <% unless @user.meetings_as_teacher.empty?  %>
           <p>These are your next classes : as a teacher </p>
           <% @user.meetings_as_teacher.each do |meeting| %>
             <p><%= link_to meeting.slot.start_format, user_video_path(current_user, video_id: meeting.id) %></p>
             <p>with <%= meeting.slot.teacher.name %></p>
             <p><%= meeting.status %></p>
+      <% end %>
           <% end %>
         <% end %>
       <% end %>
