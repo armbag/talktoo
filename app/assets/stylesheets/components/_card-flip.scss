@@ -4,6 +4,10 @@
   margin-bottom: 20px;
 }
 
+.boldname {
+  font-weight: 500;
+}
+
 
 .flip-info-card {
   align-content:space-between;
@@ -62,6 +66,7 @@
 }
 
 .flip-back {
+  background-color:#ffffff;
   border-left: 4px solid #167FFB;
   transform: rotateY(-180deg);
   text-align:center;
