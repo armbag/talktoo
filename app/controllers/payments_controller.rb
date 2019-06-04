@@ -12,13 +12,13 @@ class PaymentsController < ApplicationController
 
     charge = Stripe::Charge.create(
       customer:     customer.id,   # You should store this customer id and re-use it.
-      amount:       @meeting.amount_cents,
+      amount:       @meeting.price_cents * 100,
       description:  "Payment for the meeting : #{@meeting.id}",
-      currency:     @meeting.amount.currency
+      currency:     "usd"
     )
 
-    @meeting.update(payment: charge.to_json, status: 'paid')
-    redirect_to meeting_path(@meeting)
+    @meeting.update(price_cents: charge.to_json, status: 'paid')
+    redirect_to user_path(current_user)
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message

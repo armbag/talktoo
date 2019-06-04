@@ -6,7 +6,7 @@
       <h3 class="text-center">Welcome to <%= @user.name %>'s page!</h3>
       <%= cl_image_tag(@user.avatar, :width => 100, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
 
-
+      if
 
 
   <!-- </div> -->
@@ -15,6 +15,12 @@
     <%= render 'users/simple_calendar', slots: @slots, slot: @slot, user: @user %>
     <% if @user == current_user %>
       <%= render 'slots/form', user: @user, slot: @slot %>
+      <br>
+      <p>These are your next classes :</p>
+      <% @user.meetings_as_student.each do |meeting| %>
+        <p><%= meeting.slot.start_format %></p>
+        <p>with <%= meeting.slot.teacher.name %></p>
+      <% end %>
     <% end %>
 
 <h2>Any questions?</h2>
