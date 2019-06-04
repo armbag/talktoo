@@ -9,12 +9,11 @@
   display: flex;
   margin-bottom: 20px;
   flex-wrap: wrap;
-
 }
 
 .info-card img{
-  margin-top: 10px;
-  margin-bottom:10px;
+  margin-top: 30px;
+  margin-bottom:30px;
   width: 100px;
   height: 100px;
 }
@@ -29,6 +28,7 @@
   perspective: 1000px;
   margin: 1rem;
   position: relative;
+  border-radius: 4px;
 
 }
 @media screen and (max-width: 800px) {
@@ -68,16 +68,46 @@
   height:300px;
 }
 
+.info-card p {
+  font-size: 26px;
+}
+
 .info-card-1 .front {
-  background-image: url('standing-17.png')
+  background-color: #4adad7;
+  color:white;
+  text-align:center;
+  padding-top:150px;
 }
 
 .info-card-2 .front {
-  background-image: url('sitting-2.png')
+  background-color: #00aee4;
+  color:white;
+  padding-top:150px;
 }
 
 .info-card-3 .front {
-  background-image: url('standing-9.png')
+  background-color: #007ce6;
+  color:white;
+  padding-top:150px;
+}
+
+.info-card-1 .back {
+  background-color: #4adad7;
+  color:white;
+  text-align:center;
+  padding-top:120px;
+}
+
+.info-card-2 .back {
+  background-color: #00aee4;
+  color:white;
+  padding-top:120px;
+}
+
+.info-card-3 .back {
+  background-color: #007ce6;
+  color:white;
+  padding-top:120px;
 }
 
 
@@ -100,10 +130,11 @@
 }
 
 .back {
-  background: #fff;
+  background: $gradient2;
   transform: rotateY(-180deg);
-  padding-top: 0 2em;
-  color: #676767;
+  padding-top:120px;
+  color: #ffffff;
+  padding: 2rem;
   width:400px;
   height:300px;
   text-align:center;
