@@ -3,14 +3,15 @@
   font-weight: 500;
   color: $darkblue;
   font-size: 32px;
-  background: #fbf7ff9e;
+  // background: #fbf7ff9;
   border-radius: 4px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 1% 2%;
+  min-width:1300px;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 2% 2%;
 }
 
 .searchbar {
-  width: 300px;
+  width: auto;
   // padding: 10px;
 
   border-radius: 4px;
@@ -26,6 +27,7 @@ input {
 
 .btn-talk-fancy {
   top: 8px;
+  font-size:20px;
   bottom: 8px;
   right: 8px;
   color: white;
