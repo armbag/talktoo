@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_134747) do
+ActiveRecord::Schema.define(version: 2019_06_03_165504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_05_31_134747) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "student_id"
+    t.integer "price_cents", default: 0, null: false
+    t.string "status", default: "pending"
     t.index ["student_id"], name: "index_meetings_on_student_id"
   end
 
@@ -83,6 +85,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_134747) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "linkedin_id"
     t.string "name"
     t.text "bio"
     t.string "native_language"

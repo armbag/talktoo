@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'videos/show'
   get 'messages/create'
   # get 'users/show'
   devise_for :users, controllers: {
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :index] do
+    resources :videos, only: [:show]
     resources :meetings, only: [:create, :new, :destroy, :index, :show] do
       resources :slots, only: [:update]
     end
@@ -22,5 +24,10 @@ Rails.application.routes.draw do
     resources :chat_rooms, only: [:create, :new]
   end
 
-end
+  resources :meetings, only: [] do
+    resources :payments, only: [:new, :create]
+  end
 
+
+
+end
