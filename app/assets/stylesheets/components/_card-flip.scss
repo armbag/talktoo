@@ -8,6 +8,11 @@
   font-weight: 500;
 }
 
+.talkers {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
 
 .flip-info-card {
   align-content:space-between;
@@ -35,12 +40,13 @@
   backface-visibility: hidden;
   transform-style: preserve-3d;
   transition: ease-in-out 600ms;
+  border-radius: 4px;
 }
 
 .flip-front {
   color: grey;
   overflow: hidden;
-  background-color:#ffffff;
+  background-color:#f8f8ff;
   border-right:4px solid #167FFB;
   width:400px;
   height:300px;
@@ -66,7 +72,7 @@
 }
 
 .flip-back {
-  background-color:#ffffff;
+  background-color:#f8f8ff;
   border-left: 4px solid #167FFB;
   transform: rotateY(-180deg);
   text-align:center;

@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+.index-page {
+  padding-top: 100px;
+}
+
 .user-content {
   display: grid;
   color: $black;
@@ -30,6 +34,7 @@
   grid-template-columns: 1fr;
   grid-gap: 16px;
   padding: 16px;
+  border-radius:4px;
 }
 
 .user-cards a {
