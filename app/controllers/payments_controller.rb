@@ -17,7 +17,7 @@ class PaymentsController < ApplicationController
       currency:     "usd"
     )
 
-    @meeting.update(price_cents: charge.to_json, status: 'paid')
+    @meeting.update(status: 'paid')
     redirect_to user_path(current_user)
 
   rescue Stripe::CardError => e

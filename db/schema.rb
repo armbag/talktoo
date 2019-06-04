@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_165504) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "linkedin_id"
     t.string "name"
     t.text "bio"
     t.string "native_language"
