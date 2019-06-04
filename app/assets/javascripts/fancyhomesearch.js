@@ -52,6 +52,14 @@ function run() {
         "German",
         "Russian",
         "Mandarin",
+        "Arabic",
+        "English",
+        "French",
+        "Italian",
+        "Spanish",
+        "German",
+        "Russian",
+        "Mandarin",
         "Arabic"
     ];
   let phrases2 = [
@@ -62,11 +70,21 @@ function run() {
         "job interviewing",
         "data science",
         "social media marketing",
+        "product management",
+        "business",
+        "politics",
+        "travel",
+        "art",
+        "job interviewing",
+        "data science",
+        "social media marketing",
         "product management"
     ];
+
 
    printPhrases(phrases, $('#search'));
    printPhrases(phrases2, $('#search2'));
 }
+
 
 run();
