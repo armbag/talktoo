@@ -34,6 +34,7 @@ class MeetingsController < ApplicationController
   end
 
   def update
+    @meeting = Meeting.find(params[:id])
   end
 
   def edit
