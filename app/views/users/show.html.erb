@@ -31,14 +31,14 @@
       <% unless @user.meetings_as_student.empty?  %>
         <p>These are your next classes : as a student </p>
         <% @user.meetings_as_student.each do |meeting| %>
-          <p><%= link_to meeting.slot.start_format, user_video_path(current_user, :video_id meeting.id) %></p>
+          <p><%= link_to meeting.slot.start_format, user_video_path(current_user, video_id: meeting.id) %></p>
           <p>with <%= meeting.slot.teacher.name %></p>
         <% end %>
       <% end %>
       <% unless @user.meetings_as_teacher.empty?  %>
         <p>These are your next classes : as a teacher </p>
         <% @user.meetings_as_teacher.each do |meeting| %>
-          <p><%= link_to meeting.slot.start_format, user_video_path(current_user, :video_id meeting.id) %></p>
+          <p><%= link_to meeting.slot.start_format, user_video_path(current_user, video_id: meeting.id) %></p>
           <p>with <%= meeting.slot.teacher.name %></p>
         <% end %>
       <% end %>
