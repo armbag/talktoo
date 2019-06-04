@@ -7,12 +7,12 @@ class MeetingsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @meeting = Meeting.find(params[:id])
   end
 
   def new
     @slot_id = params[:slot_id]
-    @user = User.find(params[:user_id])
     @meeting = Meeting.new
   end
 
@@ -24,7 +24,7 @@ class MeetingsController < ApplicationController
     @meeting.status = "pending"
     if @meeting.save
       slot.update!(meeting_id: @meeting.id)
-      redirect_to user_meeting_path(current_user, @meeting)
+      redirect_to new_meeting_payment_path(@meeting)
     else
       render 'user/show'
     end

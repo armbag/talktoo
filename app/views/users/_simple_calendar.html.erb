@@ -9,7 +9,7 @@
       <% if slot.meeting != nil %>
         <p class="btn-danger">Already booked</p>
       <% else %>
-        <%= link_to "Book this slot", new_user_meeting_path(@user, slot_id: slot.id), class: "btn-primary" %>
+        <%= link_to "Book this slot", new_meeting_path(slot_id: slot.id), class: "btn-primary" %>
         <% if current_user == slot.teacher %>
           <%= link_to "Remove this slot", user_slot_path(@user, slot), :method => :delete %>
         <% end %>

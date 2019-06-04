@@ -18,7 +18,7 @@ class PaymentsController < ApplicationController
     )
 
     @meeting.update(status: 'paid')
-    redirect_to user_path(current_user)
+    redirect_to user_meeting_path(current_user, @meeting)
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message

@@ -1,7 +1,7 @@
 <h2>What do you want to talk about?</h2>
 
-<%= simple_form_for([ @user, @meeting ]) do |form| %>
+<%= simple_form_for(@meeting) do |form| %>
   <%= form.input :topic, as: :text %>
   <%= form.input :slot_id, :as => :hidden, :input_html => { :value => @slot_id} %>
-  <%= form.submit "Confirm your booking", class: "btn btn-talk" %>
+  <%= form.submit "Click to continue", class: "btn btn-talk" %>
 <% end %>

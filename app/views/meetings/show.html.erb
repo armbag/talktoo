@@ -1,9 +1,7 @@
-<h1>Recap</h1>
-
-
-<p>You're about to book a meeting wiht <%= @meeting.slot.teacher.name %> the <%= @meeting.slot.start %></p>
+<h1>Congratulations</h1>
 <br>
-
-<%= link_to "Confirm", new_meeting_payment_path(@meeting) %>
-<p>Confirm to continue</p>
-
+<br>
+<br>
+<br>
+<p>You just booked a talk with <%= @meeting.slot.teacher.name %> at <%= @meeting.slot.start_format %></p>
+<p>You can see this information on your <%= link_to "user profile",  user_path(current_user) %></p>

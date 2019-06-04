@@ -1,3 +1,14 @@
+<h1>Recap</h1>
+
+
+<p>You're about to book a meeting wiht <%= @meeting.slot.teacher.name %> the <%= @meeting.slot.start %></p>
+<br>
+
+
+
+
+
+<h1>Purchase of lesson with <%= @meeting.slot.teacher.name %></h1>
 <h1>Talk to <%= @meeting.slot.teacher.name %>!</h1>
 <%= form_tag meeting_payments_path do %>
   <article>
