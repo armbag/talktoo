@@ -6,16 +6,16 @@
 
 .banner h1 {
   margin: 0;
-  color: white;
+  color: #FBF7FF;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 40px;
-  font-weight: bold;
+  font-size: 50px;
+  font-weight: 500;
   margin-bottom: 16px;
 }
 
 .banner p {
   font-size: 20px;
-  color: white;
+  color: #FBF7FF;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
@@ -24,13 +24,6 @@
   position: relative;
 }
 
-.human1 {
-  bottom: 75px;
-  width: 300px;
-  height: 300px;
-  position: absolute;
-  right: -11px;
-}
 
 // .banner .form {
 //   box-sizing: border-box;

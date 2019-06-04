@@ -1,0 +1,28 @@
+<div class="container">
+  <div>
+   <h1>Helping busy professionals practice foreign languages</h1>
+   <p>Book one-on-one live video conversations with native speakers who are passionate and knowledgeable about the same things you are.</p>
+  </div>
+    <%= form_tag(users_path, method: :get) do %>
+      <div class="search-form-control form-group">
+        <%= text_field_tag :native_language,
+                            params[:native_language],
+                            class: "form-control",
+                            placeholder:'Which language do you want to practice?'%>
+        <%= submit_tag "start", class: "btn-talk-home" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<%= form_tag(users_path, method: :get) do %>
+  <div class="search-form-control form-group">
+    <%= text_field_tag :native_language,
+                        params[:native_language],
+                        class: "form-control",
+                        placeholder:'Which language do you want to practice?'%>
+    <%= submit_tag "start", class: "btn-talk-home" %>
+  </div>
+<% end %>
