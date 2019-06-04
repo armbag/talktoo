@@ -33,6 +33,7 @@
         <% @user.meetings_as_student.each do |meeting| %>
           <p><%= link_to meeting.slot.start_format, user_video_path(current_user, video_id: meeting.id) %></p>
           <p>with <%= meeting.slot.teacher.name %></p>
+          <p><%= meeting.status %></p>
         <% end %>
       <% end %>
       <% unless @user.meetings_as_teacher.empty?  %>
@@ -40,6 +41,7 @@
         <% @user.meetings_as_teacher.each do |meeting| %>
           <p><%= link_to meeting.slot.start_format, user_video_path(current_user, video_id: meeting.id) %></p>
           <p>with <%= meeting.slot.teacher.name %></p>
+          <p><%= meeting.status %></p>
         <% end %>
       <% end %>
     <% end %>
