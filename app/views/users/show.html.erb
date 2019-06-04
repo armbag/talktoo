@@ -1,23 +1,50 @@
-<div class="bg-profile">
+
+<div class="bg-profile-float">
   <!--   <div class="container"> -->
-    <div class="content-block">
+  <div class="user-cards">
+     <div class="u-cards">
 
 
-      <h3 class="text-center">Welcome to <%= @user.name %>'s page!</h3>
+
+
       <%= cl_image_tag(@user.avatar, :width => 100, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
+      <h3 class="text-center"><%= @user.name %></h3>
+      <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+      <p><%= @user.bio %></p>
+      <p>Interests</p>
+      <% @user.tags.each do |t| %>
+        <p class="tags"> <%= t.name %> </p>
+        <% end %>
+      </div>
+  </div>
+</div>
 
+  <div class="u-cards">
+  <p>My Calendar</p>
+
+    <%= render 'users/simple_calendar', slots: @slots, slot: @slot, user: @user %>
+      </div>
 
 
 
   <!-- </div> -->
 
 
-    <%= render 'users/simple_calendar', slots: @slots, slot: @slot, user: @user %>
+    <div class="u-cards">
+      <p>Add a slot</p>
+
     <% if @user == current_user %>
       <%= render 'slots/form', user: @user, slot: @slot %>
+    </div>
     <% end %>
 
-<h2>Any questions?</h2>
+<div class=container>
+
+<!-- chat -->
+
 <!-- <div class="container"> -->
   <div class="row">
     <div class="col-sm-12 col-sm-offset-3">
@@ -53,13 +80,25 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="content-block">
-    <div id="reviews">
+</div>
+  <p class="text-center">Reviews</p>
+<div class="user-cards">
+  <!--   <div id="reviews"> -->
       <% @user.received_reviews.each do |r| %>
+      <div class="user-cards">
         <%= render 'reviews/show', review: r %>
+      </div>
       <% end %>
-    </div>
+ <!--    </div> -->
   </div>
 
+<div class="container">
+
+<div class="user-cards">
+<% unless current_user == @user %>
+
 <%= render 'reviews/form', user: @user, review: @review %>
+<% end %>
+</div>
+
+</div>
