@@ -9,19 +9,31 @@
       </div>
 <br>
       <div class="fancysearch">
+        <%= form_tag(users_path, method: :get) do %>
         <span>Speak in</span>
-          <input type='text' id="search" class="searchbar" />
+          <!-- <input type='text' id="search" class="searchbar" /> -->
+          <%= text_field_tag :native_language,
+                              params[:native_language],
+                              id: "search",
+                              class: "searchbar" %>
         <span>about</span>
-        <input type='text' id="search2" class="searchbar" />
+        <!-- <input type='text' id="search2" class="searchbar" /> -->
+        <%= text_field_tag :tag_id,
+                            params[:tag_id],
+                            id:"search2",
+                            class: "searchbar" %>
       </div>
       <div>
         <%= submit_tag "Find native speakers", class: "btn-talk-fancy" %>
+        <% end %>
       </div>
     </div>
   </div>
   <!-- <div class="human1"><%= image_tag "humans_example.png", width: 300 %></div> -->
 </div>
 
+
+</div>
 
 <br>
 <br>
