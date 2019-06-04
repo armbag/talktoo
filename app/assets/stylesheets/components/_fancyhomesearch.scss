@@ -2,7 +2,7 @@
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
   color: $darkblue;
-  font-size: 25px;
+  font-size: 32px;
   background: #fbf7ff9e;
   border-radius: 4px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -11,7 +11,9 @@
 
 .searchbar {
   width: 300px;
-  padding: 10px;
+  // padding: 10px;
+
+  border-radius: 4px;
 }
 
 input {
@@ -41,4 +43,6 @@ input {
   color: white;
 }
 
-
+::placeholder {
+  color:#ffffff;
+}
