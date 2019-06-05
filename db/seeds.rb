@@ -51,12 +51,12 @@ user3 = User.create!({
 })
 
 user4 = User.create!({
-  name: Faker::Name.male_first_name,
-  email: Faker::Internet.free_email,
+  name: "Alex",
+  email: "alexc@gmail.com",
   password: "secret",
-  bio: "Award-winning pop culture buff. Subtly charming social media enthusiast. Falls down a lot.",
+  bio: "Award-winning pop culture buff. Subtly charming social media enthusiast. Loves running.",
   native_language: "English",
-  remote_avatar_url: "https://images.unsplash.com/photo-1528900403525-dc523d4f18d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+  avatar: File.open("#{Rails.root}/app/assets/images/alex.png")
 })
 
 user5 = User.create!({
@@ -225,6 +225,7 @@ user21 = User.create!({
   native_language: "French",
   avatar: File.open("#{Rails.root}/app/assets/images/armen_photo.jpg")
 })
+
 
 #Taggings Seeds
 Rake::Task['db:taggings'].invoke
