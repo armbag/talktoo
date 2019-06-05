@@ -3,14 +3,12 @@ import 'select2';
 
 
 const initSelect2 = () => {
-  $('.select2').select2(); // (~ document.querySelectorAll)
+  $('.select2').select2({
+    placeholder: "Choose more topic tags"
+  }); // (~ document.querySelectorAll)
 };
 
-
-// $("#elem").select2({theme:"select"});
-
 export { initSelect2 };
-
 
 
 
