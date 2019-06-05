@@ -12,7 +12,8 @@
   }
 
   .day-style {
-    border-bottom: solid;
+    border-bottom: solid 1px $black;
+    padding-bottom: 5px;
   }
 
   tr {

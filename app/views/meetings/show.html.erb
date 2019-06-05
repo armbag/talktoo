@@ -1,3 +1,7 @@
-<h2>Done!</h2>
-<p>Your talk with <%= @meeting.slot.teacher.name %>, <%= @meeting.slot.start_format %>, is booked.</p>
-<p>See this information and connect to your talk on your <%= link_to "profile page",  user_path(current_user) %>.</p>
+<div class="row">
+  <div class="container">
+    <h2>Done!</h2>
+    <p>Your talk with <%= @meeting.slot.teacher.name %>, <%= @meeting.slot.start_format %>, is booked.</p>
+    <p>See this information and connect to your talk on your <%= link_to "profile page",  user_path(current_user) %>.</p>
+  </div>
+</div>

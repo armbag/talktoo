@@ -1,10 +1,14 @@
-<h2>You're about to book a 15-minute talk with <%= @slot.teacher.name %></h2>
-<p>Talk time: <%= @slot.start_format %></p>
+<div class="row">
+  <div class="container">
+    <h2>You're about to book a 15-minute talk with <%= @slot.teacher.name %></h2>
+    <p>Talk time: <%= @slot.start_format %></p>
 
-<p>Give <%= @slot.teacher.name %> a better idea of what you want to talk about. For example, you could specify that you want to practice an interview or go over a pitch together.</p>
+    <p>Give <%= @slot.teacher.name %> a better idea of what you want to talk about. For example, you could specify that you want to practice an interview or go over a pitch together.</p>
 
-<%= simple_form_for(@meeting) do |form| %>
-  <%= form.input :topic, as: :text %>
-  <%= form.input :slot_id, :as => :hidden, :input_html => { :value => @slot_id} %>
-  <%= form.submit "Click to continue", class: "btn btn-talk" %>
-<% end %>
+    <%= simple_form_for(@meeting) do |form| %>
+      <%= form.input :topic, as: :text %>
+      <%= form.input :slot_id, :as => :hidden, :input_html => { :value => @slot_id} %>
+      <%= form.submit "Click to continue", class: "btn btn-talk" %>
+    <% end %>
+  </div>
+</div>
