@@ -7,7 +7,9 @@ class SlotsController < ApplicationController
   end
 
   def index
-    @slots = User.find(params[:id]).slots
+    @slots = User.find(params[:id]).slots.select do |slot|
+      slot.start > DateTime.now
+    end
   end
 
   def create
@@ -30,7 +32,6 @@ class SlotsController < ApplicationController
 
   def update
     @slot = Slot.find(params[:id])
-    @slot.meeting_id =
     @user = User.find(params[:user_id])
   end
 

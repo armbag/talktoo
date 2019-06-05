@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @slots = @user.slots
+    @slots = @user.slots.select { |slot| slot.start > DateTime.now }
     @slot = Slot.new
     @meetings_as_teacher = current_user.meetings_as_teacher
     @reviews = @user.received_reviews
