@@ -4,8 +4,11 @@
 
 <div class="container justify-content-center">
 <h1 class="text-center p-4 m-4">Meeting between <%= @meeting.student.name %> and <%= @meeting.slot.teacher.name %> </h1>
-  <%= cl_image_tag(@meeting.slot.teacher.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
-  <%= cl_image_tag(@meeting.student.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
+<div class="row justify-content-center p-4 m-4">
+
+  <%= cl_image_tag(@meeting.student.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered-v") %>
+  <%= cl_image_tag(@meeting.slot.teacher.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered-v") %>
+</div>
   <div class="container-video-chatbox">
     <div class="tokebox-video">
     <iframe src="https://tokbox.com/embed/embed/ot-embed.js?embedId=a672ebf5-9243-4f22-9a44-55a82a9cc61e&room=<%= @video_id %>&iframe=true" width=700 height=560 scrolling="auto" allow="microphone; camera" ></iframe>
