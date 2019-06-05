@@ -50,14 +50,6 @@ user3 = User.create!({
   remote_avatar_url: "https://images.unsplash.com/photo-1551863863-e01bbf274ef6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
 })
 
-user4 = User.create!({
-  name: Faker::Name.male_first_name,
-  email: Faker::Internet.free_email,
-  password: "secret",
-  bio: "Award-winning pop culture buff. Subtly charming social media enthusiast. Falls down a lot.",
-  native_language: "English",
-  remote_avatar_url: "https://images.unsplash.com/photo-1528900403525-dc523d4f18d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-})
 
 user5 = User.create!({
   name: Faker::Name.female_first_name,
@@ -224,6 +216,15 @@ user21 = User.create!({
   bio: "Web entrepreneur and full-stack developper. Beer guru and travel enthusiast.",
   native_language: "French",
   avatar: File.open("#{Rails.root}/app/assets/images/armen_photo.jpg")
+})
+
+user4 = User.create!({
+  name: "Alex",
+  email: "alexc@gmail.com",
+  password: "secret",
+  bio: "Award-winning pop culture buff. Subtly charming social media enthusiast. Loves running.",
+  native_language: "English",
+  avatar: File.open("#{Rails.root}/app/assets/images/Alex.png")
 })
 
 #Taggings Seeds
