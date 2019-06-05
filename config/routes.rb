@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount ActionCable.server => "/cable"
+
   get 'videos/show'
   get 'messages/create'
   # get 'users/show'
