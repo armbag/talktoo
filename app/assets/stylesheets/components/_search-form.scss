@@ -46,8 +46,24 @@
 }
 
 .search {
-  width: 400px;
-  padding:16px;
+  width: 500px;
+  padding:22px;
+  padding-top: 20px;
+  padding-bottom:20px;
+}
+
+.btn-index {
+  width: 66px;
+  padding:8px;
+  background: #00aee4;
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.btn-index:hover {
+  background: $darkblue;
+  color: white;
 }
 
 .btn-talk-search {

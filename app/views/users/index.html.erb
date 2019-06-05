@@ -1,17 +1,17 @@
-<div class="container-fluid index-page">
-  <h2 class="text-center">Add or change a topic tag to refine your search</h2>
-<!--   <h2 class="text-center">Find someone to practice a language with</h2> -->
 
-    <div class="row justify-content-center">
-        <%= form_tag users_path, method: :get do %>
-          <%= hidden_field_tag :native_language, params[:native_language] %>
-          <%= select_tag :tag_id, options_for_select(Tag.all.map {|x| [x.name,x.id]}), multiple: true, class: "select2 search", :prompt => "Choose a Topic" %>
-          <%= submit_tag "search", class: "btn-talk-search" %>
-        <% end %>
-
-
-      <div class="container-fluid p-4">
-        <span class="talkers"><%= @users.count%> <%= @user[:native_language] %> talkers found</span>
+<div class="index-page">
+  <div class="bg-index">
+    <span class="talkers text-center"><%= @users.count%> <%= params[:native_language] %> talkers found</span>
+      <h2 class="text-center p-4 m-4">Add or change a topic tag to refine your search</h2>
+          <%= form_tag users_path, method: :get do %>
+            <%= hidden_field_tag :native_language, params[:native_language] %>
+            <%= select_tag :tag_id, options_for_select(Tag.all.map {|x| [x.name,x.id]}), multiple: true, class: "select2 search" %>
+            <%= submit_tag "search", class: "btn-index" %>
+          <% end %>
+  </div>
+</div>
+   <!--    <div class="container-fluid p-4"> -->
+    </div>
         <div class="row justify-content-center">
             <% @users.each do |user| %>
 
