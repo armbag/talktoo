@@ -48,7 +48,7 @@
   color: #333333;
   overflow: hidden;
   background-color:#f8f8ff;
-  border-right:4px solid #00aee4;
+  // border-right:4px solid #00aee4;
   width:400px;
   height:300px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -78,7 +78,7 @@
 
 .flip-back {
   background-color:#f8f8ff;
-  border-left: 4px solid #167FFB;
+  // border-left: 4px solid #167FFB;
   transform: rotateY(-180deg);
   text-align:center;
   width:400px;
