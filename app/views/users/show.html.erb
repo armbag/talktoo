@@ -37,7 +37,7 @@
         <h3 class="text-center">Practice <%= @user.native_language %> with <%= @user.name %></h3>
         <p> Select an available time slot to proceed to your booking confirmation page.</p>
         <%= render 'users/simple_calendar', slots: @slots, slot: @slot, user: @user %>
-        <%= render 'slots/form', user: @user, slot: @slot %>
+        <%#= render 'slots/form', user: @user, slot: @slot %>
       <% end %>
 
       <% unless @user.meetings_as_student.empty?  %>
@@ -137,5 +137,4 @@
                 })
       </script>
   <% end %>
->>>>>>> master
 </div>
