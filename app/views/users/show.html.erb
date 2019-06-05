@@ -52,10 +52,8 @@
                 <p><small><%= link_to meeting.slot.start_format, user_video_path(current_user, video_id: meeting.id) %></small></p>
                 <p>Practicing <%= meeting.slot.teacher.native_language %> with <strong><%= meeting.slot.teacher.name %></strong></p>
               </div>
-
               <div class="notification-actions">
                 <p><small><%= link_to "Join Meeting", user_video_path(current_user, video_id: meeting.id) %></small> <i class="fas fa-rocket"></i></p>
-
               <!--   <a href="#">Join Meeting <i class="fas fa-pencil-alt"></i></a> -->
                 <a href="#">Delete <i class="far fa-trash-alt"></i></a>
               </div>
@@ -64,15 +62,13 @@
         <% end %>
       <% end %>
 
-      <% unless @user.email == "alexc@gmail.com" %>
-        <% unless @user.meetings_as_teacher.empty?  %>
+      <% if current_user.email == "alexc@gmail.com" %>
           <p>These are your next classes : as a teacher </p>
           <% @user.meetings_as_teacher.each do |meeting| %>
             <p><%= link_to meeting.slot.start_format, user_video_path(current_user, video_id: meeting.id) %></p>
-            <p>with <%= meeting.slot.teacher.name %></p>
+            <p>with <%= meeting.student.name %></p>
             <p><%= meeting.status %></p>
           <% end %>
-        <% end %>
       <% end %>
     </div>
   </div>
