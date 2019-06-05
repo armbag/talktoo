@@ -8,13 +8,11 @@
           <%= select_tag :tag_id, options_for_select(Tag.all.map {|x| [x.name,x.id]}), multiple: true, class: "select2 search", :prompt => "Choose a Topic" %>
           <%= submit_tag "search", class: "btn-talk-search" %>
         <% end %>
-     <!--  </div> -->
 
 
       <div class="container-fluid p-4">
         <span class="talkers"><%= @users.count%> <%= @user[:native_language] %> talkers found</span>
         <div class="row justify-content-center">
-          <!-- <div class="col-lg-12"> -->
             <% @users.each do |user| %>
 
               <% if user_signed_in? %>
@@ -33,7 +31,6 @@
 
             <% end %>
 
-          <!-- </div> -->
           </div>
         </div>
       </div>
