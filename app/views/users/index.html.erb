@@ -1,3 +1,4 @@
+
 <div class="index-page">
   <div class="bg-index">
     <span class="talkers text-center"><%= @users.count%> <%= params[:native_language] %> talkers found</span>
@@ -12,7 +13,6 @@
    <!--    <div class="container-fluid p-4"> -->
     </div>
         <div class="row justify-content-center">
-          <!-- <div class="col-lg-12"> -->
             <% @users.each do |user| %>
 
               <% if user_signed_in? %>
@@ -31,7 +31,6 @@
 
             <% end %>
 
-          <!-- </div> -->
           </div>
         </div>
       </div>

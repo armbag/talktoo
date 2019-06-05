@@ -23,4 +23,15 @@ body {
 
 .mega-container {
   flex-grow: 1;
+  display: flex;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.yield-container {
+  flex-grow: 1;
 }
