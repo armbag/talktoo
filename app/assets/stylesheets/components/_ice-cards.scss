@@ -1,43 +1,4 @@
 
-pre, textarea {
-  overflow: auto;
-}
-
-[hidden], audio:not([controls]), template {
-  display: none;
-}
-
-details, main, summary {
-  display: block;
-}
-
-input[type=number] {
-  width: auto;
-}
-
-input[type=search], input[type=text], input[type=email] {
-  -webkit-appearance: none;
-}
-
-input[type="*"] {
-  -webkit-appearance: none;
-}
-
-input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-progress {
-  display: inline-block;
-}
-
-small {
-  font-size: 100%;
-}
-
-textarea {
-  resize: vertical;
-}
 
 [unselectable] {
   -webkit-user-select: none;
@@ -76,34 +37,7 @@ textarea {
   text-rendering: optimizeLegibility;
 }
 
-a {
-  text-decoration: none;
-}
 
-audio, canvas, iframe, img, svg, video {
-  vertical-align: middle;
-}
-
-button, input, select, textarea {
-  background-color: transparent;
-  color: inherit;
-  font-family: inherit;
-  font-style: inherit;
-  font-weight: inherit;
-  min-height: 1.5em;
-}
-
-code, kbd, pre, samp {
-  font-family: monospace,monospace;
-}
-
-nav ol, nav ul {
-  list-style: none;
-}
-
-ul li {
-  list-style: none;
-}
 
 select {
   -moz-appearance: none;
@@ -144,100 +78,17 @@ table {
   }
 }
 
-html {
-  -webkit-overflow-scrolling: touch;
-  box-sizing: border-box;
-  -webkit-tap-highwhite-color: transparent;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
 
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-li {
-  display: block;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-}
 
 
-.heading-2 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 40px;
-  color: #000;
-  letter-spacing: 0.3px;
-}
-
-.heading-2--white {
-  color: #FFF;
-}
 
 
-.serif {
-  font-family: "Arnhem";
-  font-size: 24px;
-  font-weight: 100;
-  line-height: 38px;
-  color: #3E4954;
-}
-
-@media (max-width: 400px) {
-  .serif {
-    font-size: 20px;
-    line-height: 32px;
-  }
-}
-
-.heading-3 {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 25px;
-  color: #3E4954;
-  letter-spacing: 0.3px;
-}
-
-.heading-3 + .heading-3 {
-  margin-top: 5px;
-}
-
-.heading-3--white {
-  color: #FFF;
-}
-
-.heading-3--light {
-  color: #848995;
-}
 
 
-.text {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 30px;
-  color: #848995;
-  letter-spacing: 0px;
-}
 
-@media (max-width: 600px) {
-  .text {
-    font-size: 16px;
-    line-height: 30px;
-  }
-}
-.text--light-white {
-  color: rgba(255, 255, 255, 0.7);
-}
+
+
 
 
 .link {
@@ -592,6 +443,7 @@ li {
 
 .slider__item-content {
   padding: 40px;
+  color:black;
 }
 
 @media (max-width: 600px) {
@@ -637,20 +489,6 @@ li {
 }
 
 
-.button {
-  display: inline-block;
-  height: 44px;
-  padding: 12px 16px;
-  font-weight: 500;
-  line-height: 20px;
-  color: #FFF;
-  border-radius: 3px;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.button:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
 
 
 
