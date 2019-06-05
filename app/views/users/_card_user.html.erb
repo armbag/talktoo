@@ -10,13 +10,16 @@
           <%= user[:rating] %></p>
         <p class="boldname"><%= user[:name] %></p>
         <p><%= user.slots.first.price %>€/15min</p>
-        <p>Next availablility: <%= user.slots.first.start_format %></p>
+        <p>Next availablility:<strong> <%= user.slots.first.start_format %></strong></p>
     </div>
     <div class="flip-back justify-content-center p-4">
       <p><%= user[:bio] %></p>
-        <p>Interests</p>
+
+        <h6>Topic Interests</h6>
         <% user.tags.each do |t| %>
-        <p class="tags"> <%= t.name %> </p>
+        <div class ="tags">
+        <%= t.name %>
+        </div>
         <% end %>
       </div>
     </div>
