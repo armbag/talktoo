@@ -27,9 +27,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @slots = @user.slots
     @slot = Slot.new
+    @meetings_as_teacher = current_user.meetings_as_teacher
     @reviews = @user.received_reviews
     @review = Review.new
     @chat_room = ChatRoom.first
+
   end
 
   def update
