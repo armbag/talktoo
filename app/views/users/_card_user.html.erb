@@ -10,7 +10,8 @@
           <%= user[:rating] %></p>
         <p class="boldname"><%= user[:name] %></p>
         <p><%= user.slots.first.price %>€/15min</p>
-        <p>Next availablility:<strong> <%= user.slots.first.start_format %></strong></p>
+        <% wanted = user.slots.find { |s| s.start > DateTime.now} %>
+        <p>Next availablility:<strong> <%= wanted.start_format %></strong></p>
     </div>
     <div class="flip-back justify-content-center p-4">
       <p><%= user[:bio] %></p>
@@ -24,4 +25,5 @@
       </div>
     </div>
   </div>
+
 
