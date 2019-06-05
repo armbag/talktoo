@@ -13,6 +13,7 @@ class MeetingsController < ApplicationController
 
   def new
     @slot_id = params[:slot_id]
+    @slot = Slot.find(@slot_id)
     @meeting = Meeting.new
   end
 
