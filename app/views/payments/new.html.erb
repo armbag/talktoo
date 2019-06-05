@@ -1,4 +1,3 @@
-
 <div class="bg-payment3">
 
 <div class="justify-content-center text-center p-4">
@@ -7,17 +6,18 @@
 <h2 class="p-4 m-4">Check your order</h2>
 <p>If everything looks right, proceed to payment to confirm your booking.</p>
 
-<p>Practice <%= @meeting.slot.teacher.native_language %> with <%= @meeting.slot.teacher.name %></p>
-<p>Talk time: <%= @meeting.slot.start_format %></p>
-<p>Details for <%= @meeting.slot.teacher.name %>: <%= @meeting.topic %></p>
+    <p>Practice <%= @meeting.slot.teacher.native_language %> with <%= @meeting.slot.teacher.name %></p>
+    <p>Talk time: <%= @meeting.slot.start_format %></p>
+    <p>Details for <%= @meeting.slot.teacher.name %>: <%= @meeting.topic %></p>
 
 
-<%= form_tag meeting_payments_path do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@meeting.price) %></span>
-    </label>
-  </article>
+    <%= form_tag meeting_payments_path do %>
+      <article>
+        <label class="amount">
+          <span>Amount: <%= humanized_money_with_symbol(@meeting.price) %></span>
+        </label>
+      </article>
+
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
@@ -29,4 +29,4 @@
 <% end %>
 </div>
 </div>
-</div>
+
