@@ -1,11 +1,11 @@
 
 
 <div class="video">
-  <%#= @meeting.student.name.avatar %>
 
 <div class="container justify-content-center">
-<h1 class="text-center p-4 m-4">Meeting with <%= @user.name %> and  </h1>
-  <%= cl_image_tag(@user.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
+<h1 class="text-center p-4 m-4">Meeting between <%= @meeting.student.name %> and <%= @meeting.slot.teacher.name %> </h1>
+  <%= cl_image_tag(@meeting.slot.teacher.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
+  <%= cl_image_tag(@meeting.student.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
   <div class="container-video-chatbox">
     <div class="tokebox-video">
     <iframe src="https://tokbox.com/embed/embed/ot-embed.js?embedId=a672ebf5-9243-4f22-9a44-55a82a9cc61e&room=<%= @video_id %>&iframe=true" width=700 height=560 scrolling="auto" allow="microphone; camera" ></iframe>
@@ -14,8 +14,8 @@
       <div id="Messages" class="chatroom-messages">
        <!--  <div class="row">
           <div class="col-sm-12 col-sm-offset-3"> -->
-            <!-- <div class="chat-header"><h4>#<%= @chat_room.name %></h4></div> -->
-            <h3 class="text-center chat-header">Send <%= @user.name %> a message</h3>
+            <!-- <div class="chat-header"><h4>#<%#= @chat_room.name %></h4></div> -->
+            <h3 class="text-center chat-header">Chat</h3>
             <div class="messages">
               <% @chat_room.messages.each do |message| %>
                 <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
