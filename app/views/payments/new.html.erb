@@ -1,4 +1,10 @@
-<h2>Check your order</h2>
+
+<div class="bg-home">
+
+<div class="justify-content-center text-center p-4">
+<div class="content-payment">
+
+<h2 class="p-4 m-4">Check your order</h2>
 <p>If everything looks right, proceed to payment to confirm your booking.</p>
 
 <p>Practice <%= @meeting.slot.teacher.native_language %> with <%= @meeting.slot.teacher.name %></p>
@@ -21,3 +27,6 @@
     data-amount="<%= @meeting.price_cents %>"
     data-currency="<%= @meeting.price.currency %>"></script>
 <% end %>
+</div>
+</div>
+</div>
