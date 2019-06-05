@@ -11,6 +11,10 @@
     width: 100%;
   }
 
+  .day-style {
+    border-bottom: solid;
+  }
+
   tr {
     border-collapse: collapse;
     border: 1px solid #ddd;
@@ -26,6 +30,7 @@
     box-sizing: border-box;
     text-align: center;
     background-color:#ddd;
+
   }
 
   td {
@@ -49,12 +54,19 @@
     border-left-width: 1px;
   }
 
+
+  .slot-start-time {
+    margin-bottom: 0;
+  }
+
+
   .day {
     height: 80px;
     background-color: transparent;
   }
 
-  .wday-0 {}
+  .wday-0 {
+  }
   .wday-1 {}
   .wday-2 {}
   .wday-3 {}

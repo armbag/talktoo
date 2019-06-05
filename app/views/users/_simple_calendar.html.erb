@@ -1,19 +1,21 @@
 <%= week_calendar events: slots do |date, slots| %>
-<%= date.day %>
-
+<div class="day-style">
+  <%= date.day %>
+</div>
+<br>
   <div id="slots">
     <% slots.each do |slot| %>
-      <br>
       <%= render 'slots/show', slot: slot %>
-      <br>
-      <% if slot.meeting != nil %>
-        <p class="btn-danger">Already booked</p>
-      <% else %>
-        <%= link_to "Book this slot", new_meeting_path(slot_id: slot.id), class: "btn-primary" %>
-        <% if current_user == slot.teacher %>
-          <%= link_to "Remove this slot", user_slot_path(@user, slot), :method => :delete %>
+        <% if slot.meeting != nil %>
+          <p class="btn btn-danger">Already booked</p>
+        <% else %>
+          <%= link_to "Book!", new_meeting_path(slot_id: slot.id), class: "btn btn-primary" %>
+          <% if current_user == slot.teacher %>
+            <%= link_to "Remove this slot", user_slot_path(@user, slot), :method => :delete %>
+          <% end %>
+          <br>
+          <br>
         <% end %>
-      <% end %>
     <% end %>
   </div>
 <% end %>
