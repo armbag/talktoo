@@ -64,7 +64,7 @@
         <% end %>
       <% end %>
 
-      <% unless @user == current_user %>
+      <% unless @user.email == "alexc@gmail.com" %>
         <% unless @user.meetings_as_teacher.empty?  %>
           <p>These are your next classes : as a teacher </p>
           <% @user.meetings_as_teacher.each do |meeting| %>
