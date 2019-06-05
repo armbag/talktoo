@@ -14,7 +14,7 @@
 
 .parent-show{
   display: flex;
-  height: 100vh;
+  justify-content: center;
 }
 
 #Calendar {
@@ -32,7 +32,15 @@
 .bg-profile-float {
   background:$gradient;
   width:30%;
+  flex-shrink: 0;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  // height: 100vh;
+
+  max-height: 100vh;
+  min-height: calc(100vh - 62px);
+
+  position: sticky;
+  top: 0px;
 }
 
 .bg-slant{
