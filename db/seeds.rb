@@ -274,7 +274,7 @@ user4 = User.create!({
   password: "secret",
   bio: "PHP guru and full-stack developer. Loves running. I teach while running my own business.",
   native_language: "English",
-  avatar: File.open("#{Rails.root}/app/assets/images/Alex.png")
+  avatar: File.open("#{Rails.root}/app/assets/images/Alex.jpg")
 })
 
 #Taggings Seeds
