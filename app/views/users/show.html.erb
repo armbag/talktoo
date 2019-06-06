@@ -42,22 +42,22 @@
 
       <% unless @user.meetings_as_student.empty?  %>
         <h3 class="text-center p-4 m-4">My upcoming classes</h3>
-
         <% @user.meetings_as_student.each do |meeting| %>
-
-          <%= link_to user_path(meeting.slot.teacher) do %>
-            <div class="notification">
-              <%= cl_image_tag(meeting.slot.teacher.avatar, :width => 56, :height => 56, :crop => :thumb, :gravity => :face, class: "avatar-large") %>
-              <div class="notification-content">
-                <p><small><%= link_to meeting.slot.start_format, user_video_path(current_user, video_id: meeting.id) %></small></p>
-                <p>Practicing <%= meeting.slot.teacher.native_language %> with <strong><%= meeting.slot.teacher.name %></strong></p>
+          <% if meeting.slot.start > DateTime.now %>
+            <%= link_to user_path(meeting.slot.teacher) do %>
+              <div class="notification">
+                <%= cl_image_tag(meeting.slot.teacher.avatar, :width => 56, :height => 56, :crop => :thumb, :gravity => :face, class: "avatar-large") %>
+                <div class="notification-content">
+                  <p><small><%= link_to meeting.slot.start_format, user_video_path(current_user, video_id: meeting.id) %></small></p>
+                  <p>Practicing <%= meeting.slot.teacher.native_language %> with <strong><%= meeting.slot.teacher.name %></strong></p>
+                </div>
+                <div class="notification-actions">
+                  <p><small><%= link_to "Join Meeting", user_video_path(current_user, video_id: meeting.id) %></small> <i class="fas fa-rocket"></i></p>
+                <!--   <a href="#">Join Meeting <i class="fas fa-pencil-alt"></i></a> -->
+                  <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+                </div>
               </div>
-              <div class="notification-actions">
-                <p><small><%= link_to "Join Meeting", user_video_path(current_user, video_id: meeting.id) %></small> <i class="fas fa-rocket"></i></p>
-              <!--   <a href="#">Join Meeting <i class="fas fa-pencil-alt"></i></a> -->
-                <a href="#">Delete <i class="far fa-trash-alt"></i></a>
-              </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
