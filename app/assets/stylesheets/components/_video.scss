@@ -1,8 +1,17 @@
 .video {
-  background: $gradient;
+  // background: $gradient;
   height:100%;
-  color: #ffffff;
+  color: black;
   padding-top:0;
+}
+
+.video-show {
+  margin-top:120px;
+  padding-top:120px;
+  padding:30px;
+  margin:10px;
+  background-color: green;
+  // margin-left: 15px;
 }
 
 
@@ -10,4 +19,9 @@
   width:120px;
   height:120px;
   margin-bottom: 20px;
+}
+
+.fix-profile-video {
+  position: sticky;
+  margin-top: 250px;
 }
