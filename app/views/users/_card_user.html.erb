@@ -1,4 +1,4 @@
-<div class="flip-info-content justify-content-center p-4">
+<div class="flip-info-content justify-content-center">
   <div class="flip-info-card">
     <div class="flip-front flex-wrap">
       <%= cl_image_tag(user.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered") %>
@@ -8,20 +8,24 @@
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star"></span>
           <%= user[:rating] %></p>
-        <p class="boldname"><%= user[:name] %></p>
-        <p><%= user.slots.first.price %>€/15min</p>
+          <div class="user-info">
+            <p><strong><%= user[:name] %></strong></p>
+            <p><%= user.slots.first.price %>€/15min</p>
         <% wanted = user.slots.find { |s| s.start > DateTime.now} %>
-        <p>Next availablility:<strong> <%= wanted.start_format %></strong></p>
-    </div>
-    <div class="flip-back justify-content-center p-4">
-      <p><%= user[:bio] %></p>
+          </div>
+       <!--  <p><strong>Topic interests</strong></p> -->
+            <% user.tags.each do |t| %>
+              <div class ="tags">
+                <%= t.name %>
+              </div>
+                <% end %>
+              <div class="user-info-tags">
+                <p class="p-4 m-4">Next availablility:<strong> <%= wanted.start_format %></strong></p>
+                </div>
+            </div>
+              <div class="flip-back justify-content-center p-4">
+                <p><%= user[:bio] %></p>
 
-        <h6>Topic interests</h6>
-        <% user.tags.each do |t| %>
-        <div class ="tags">
-        <%= t.name %>
-        </div>
-        <% end %>
       </div>
     </div>
   </div>

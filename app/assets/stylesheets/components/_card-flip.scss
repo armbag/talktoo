@@ -17,14 +17,14 @@
 .flip-info-card {
   align-content:space-between;
   cursor: pointer;
-  height: 300px;
-  min-width: 400px;
+  min-height: 450px;
+  min-width: 330px;
   margin:16px;
 }
 
 .flip-info-card img{
   margin-top: 20px;
-  margin-bottom:10px;
+  margin-bottom:8px;
   width: 120px;
   height: 120px;
 }
@@ -49,8 +49,8 @@
   overflow: hidden;
   background-color:#f8f8ff;
   // border-right:4px solid #00aee4;
-  width:400px;
-  height:300px;
+  width:330px;
+  height:450px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin:20px;
 }
@@ -81,22 +81,22 @@
   // border-left: 4px solid #167FFB;
   transform: rotateY(-180deg);
   text-align:center;
-  width:400px;
-  height:300px;
+  width:330px;
+  height:450px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   color:#777777;
-  padding:100px;
+  padding-top:120px;
 }
 
 .flip-back p {
   text-align:center;
   color:#777777;
-  padding-top:20px;
+  padding-top:120px;
 }
 
 .flip-back h6 {
   text-align:center;
-  padding-top:20px;
+  padding-top:10px;
 }
 
 .flip-info-card:hover .flip-back {
@@ -121,4 +121,14 @@
 .container-profile {
   width:100%;
   padding:0;
+}
+
+.user-info {
+  padding-bottom:16px;
+  margin-bottom:10px;
+}
+
+.user-info-tags {
+  padding-top:26px;
+   margin-bottom:20px;
 }
