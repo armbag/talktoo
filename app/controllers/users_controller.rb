@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     @chat_room = ChatRoom.first
     @message_active = false
     @message_active = true if params[:active_tab] == "Messages"
-
+    @reviewer = @user.name
 
   end
 

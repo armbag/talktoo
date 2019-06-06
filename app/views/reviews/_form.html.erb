@@ -1,13 +1,16 @@
 
-    <%= simple_form_for([ user, review ], remote: true) do |form| %>
     <div class="justify-content-center">
-
-      <p class="review"><%= form.input :comment, as: :text %></p>
+    <%= simple_form_for([ user, review ], remote: true) do |form| %>
 
       <div class="justify-content-center">
-        <p class="rating"><%= form.input :rating, collection: (1..5).to_a, label: "Rate your experience" %></p>
+      <p class="review"><%= form.input :comment, as: :text %></p>
+
+        <p class="rating text-center"><%= form.input :rating, collection: (1..5).to_a, label: "Rate your experience" %></p>
       </div>
     </div>
 
-      <%= form.submit "Add your review", class: "btn btn-talk" %>
+      <%= form.submit "Add your review", class: "btn btn-talk p-4 m-4" %>
     <% end %>
+
+
+    <h3 class="p-4 m-4">Recent reviews</h3>

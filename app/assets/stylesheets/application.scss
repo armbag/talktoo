@@ -40,10 +40,22 @@ p {
   color: $black;
 }
 
+
 h2 {
   color: $black;
 }
 
 h3 {
   color: $black;
+}
+
+
+.br-widget a {
+  text-decoration: none;
+  height: 18px;
+  width: 18px;
+  font-size: 23px;
+  margin-right: auto;
+  margin-left:auto;
+  text-align: center;
 }
