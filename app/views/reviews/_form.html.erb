@@ -2,10 +2,12 @@
     <%= simple_form_for([ user, review ], remote: true) do |form| %>
     <div class="justify-content-center">
 
-    <p class="review"><%= form.input :comment, as: :text %></p>
-    <p class="rating"><%= form.input :rating, as: :integer %></p>
+      <p class="review"><%= form.input :comment, as: :text %></p>
+
+      <div class="justify-content-center">
+        <p class="rating"><%= form.input :rating, collection: (1..5).to_a, label: "Rate your experience" %></p>
+      </div>
     </div>
 
       <%= form.submit "Add your review", class: "btn btn-talk" %>
     <% end %>
-

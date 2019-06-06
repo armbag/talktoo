@@ -83,11 +83,11 @@
   <div id="Reviews" class="tabcontent text-center">
     <h3><%= @user.name %>'s Reviews</h3>
     <p>Had a great talk with <%= @user.name %>? Let us know! </p>
-    <% @user.received_reviews.each do |r| %>
-      <%= render 'reviews/show', review: r %>
-    <% end %>
     <% unless current_user == @user %>
       <%= render 'reviews/form', user: @user, review: @review %>
+    <% end %>
+    <% @user.received_reviews.each do |r| %>
+      <%= render 'reviews/show', review: r %>
     <% end %>
   </div>
 
