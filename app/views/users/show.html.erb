@@ -86,6 +86,7 @@
     <% unless current_user == @user %>
       <%= render 'reviews/form', user: @user, review: @review %>
     <% end %>
+    <h3 class="p-4 m-4">Recent reviews</h3>
     <% @user.received_reviews.each do |r| %>
       <%= render 'reviews/show', review: r %>
     <% end %>
