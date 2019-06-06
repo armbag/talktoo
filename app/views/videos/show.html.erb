@@ -21,45 +21,45 @@
 
             <label for="slide-1" class="slider__item slider__item--1 card">
               <div class="slider__item-content">
-                <p class="heading-3 heading-3--light">talktoo</p>
-                <p class="heading-3">conversation topics</p>
-                <p class="slider__item-text serif">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
 
+                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" alt=" hotel room">
+                  <h3 class="heading-3">Travel Accomodation</h3>
+                  <p class="slider__item-text serif">Where do you like to stay while traveling? Do you prefer to book a hotel, or rent a shared home or flat? Have you ever stayed in a hostel? What was it like? Have you ever hosted tourists in your home?</p>
               </div>
             </label> <!-- Slider__item -->
 
             <label for="slide-2" class="slider__item slider__item--2 card">
               <div class="slider__item-content">
-                <p class="heading-3 heading-3--light">talktoo</p>
-                <p class="heading-3">conversation topics</p>
-                <p class="slider__item-text serif">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <img src="https://images.unsplash.com/photo-1543169055-23de73a4eb13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80" alt=" hotel room">
+                <h3 class="heading-3">Transportation</h3>
+                <p class="slider__item-text serif">From crossing oceans and continents by freighter ship or first class in a jet plane, or just getting around town in a taxi or on a bike - how do you like to travel? </p>
 
               </div>
             </label> <!-- Slider__item -->
 
             <label for="slide-3" class="slider__item slider__item--3 card">
               <div class="slider__item-content">
-                <p class="heading-3 heading-3--light">talktoo</p>
-                <p class="heading-3">conversation topics</p>
-                <p class="slider__item-text serif">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt=" hotel room">
+                <h3 class="heading-3">Activities</h3>
+                <p class="slider__item-text serif">Many travelers seek out destinations that are particularly suited to specific activities, such as scuba diving or rock climbing. <!-- What activities do you or others you know partake in? Is there anything you'd like to try. --></p>
 
               </div>
             </label> <!-- Slider__item -->
 
             <label for="slide-4" class="slider__item slider__item--4 card">
               <div class="slider__item-content">
-                <p class="heading-3 heading-3--light">talktoo</p>
-                <p class="heading-3">conversation topics</p>
-                <p class="slider__item-text serif">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <img src="https://images.unsplash.com/photo-1533625655932-73abd53515b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt=" hotel room">
+                <h3 class="heading-3">Safety and Concerns</h3>
+                <p class="slider__item-text serif">There are many things that you can do to ensure that you stay safe while traveling. What do you do to stay safe? <!-- Is safety a concern for you while traveling? --></p>
 
               </div>
             </label> <!-- Slider__item -->
 
             <label for="slide-5" class="slider__item slider__item--5 card">
               <div class="slider__item-content">
-                <p class="heading-3 heading-3--light">talktoo</p>
-                <p class="heading-3">conversation topics</p>
-                <p class="slider__item-text serif">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium nisi adipisci laborum repudiandae tempora.</p>
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="dining">
+                <h3 class="heading-3">Food and drink</h3>
+                <p class="slider__item-text serif">Why not try some local specialties when travelling? Do you like to eat local while traveling, or do you stick to what you know? <!-- What was the best meal you've had abroad?  --></p>
 
               </div>
             </label> <!-- Slider__item -->
@@ -75,16 +75,15 @@
 
 <% end %>
 
-<div class="video">
+<div class="video justify-content-center">
+  <div class="container justify-content-center">
+    <h1 class="text-center p-4 m-4">Meeting between <%= @meeting.student.name %> and <%= @meeting.slot.teacher.name %> </h1>
+  <div class="justify-content-center p-4 m-4">
+    <div class="v-cards row justify-content-center">
 
-<div class="container justify-content-center">
-<h1 class="text-center p-4 m-4">Meeting between <%= @meeting.student.name %> and <%= @meeting.slot.teacher.name %> </h1>
-<div class="justify-content-center p-4 m-4">
-<div class="v-cards justify-content-center">
-
-<%= cl_image_tag(@meeting.student.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered-v") %>
+      <%= cl_image_tag(@meeting.student.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered-v") %>
           <%= cl_image_tag(@meeting.slot.teacher.avatar, :width => 120, :height => 100, :crop => :thumb, :gravity => :face, class: "avatar-bordered-v") %>
-</div>
+    </div>
  </div>
   <div class="container-video-chatbox">
     <div class="tokebox-video">
