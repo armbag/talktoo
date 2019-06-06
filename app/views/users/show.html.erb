@@ -91,30 +91,32 @@
     <% end %>
   </div>
 
-
   <div id="Messages" class="tabcontent text-center">
-    <div class="row">
-      <div class="col-lg-12 col-sm-offset-3">
-          <h3 class="p-4 m-4">Send <%= @user.name %> a message</h3>
-        <div class="chat-header">
-          <%#= @chat_room.name %>
-        </div>
-        <div class="chat-messages">
-          <% @chat_room.messages.each do |message| %>
-            <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
-          <% end %>
-        </div>
-
-        <div id="create-message">
-          <%= simple_form_for [ @chat_room, Message.new ], remote: true, html: {autocomplete: "off" } do |f| %>
-          <%= f.input :content, label: false %>
-          <%= f.submit class: "btn btn-talk-fancy mt-2 btn-block" %>
-          <% end %>
-        </div>
+    <div class="chatbox-user">
+      <!-- <div class="row"> -->
+        <!-- <div class="col-lg-12 col-sm-offset-3"> -->
+      <h3 class="p-4 m-4">Send <%= @user.name %> a message</h3>
+      <div class="chat-header-show">
+        <h4>Chat</h4>
       </div>
+      <div class="chat-messages">
+        <% @chat_room.messages.each do |message| %>
+          <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
+        <% end %>
+      </div>
+
+
+      <div id="create-message">
+        <%= simple_form_for [ @chat_room, Message.new ], remote: true, html: {autocomplete: "off" } do |f| %>
+        <%= f.input :content, label: false %>
+        <%= f.submit class: "btn btn-primary mt-2 btn-block" %>
+        <% end %>
+
+      </div>
+        <!-- </div> -->
+      <!-- </div> -->
     </div>
   </div>
-
 
   <% content_for :after_js do %>
     <script>
