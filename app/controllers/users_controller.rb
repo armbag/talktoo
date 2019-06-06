@@ -31,6 +31,9 @@ class UsersController < ApplicationController
     @reviews = @user.received_reviews
     @review = Review.new
     @chat_room = ChatRoom.first
+    @message_active = false
+    @message_active = true if params[:active_tab] == "Messages"
+
 
   end
 
