@@ -5,7 +5,7 @@
       <div class="user-cards">
         <div class="u-cards">
           <%= cl_image_tag(@user.avatar, :width => 300, :height => 300, :crop => :thumb, :gravity => :face, class: "avatar-bordered-thick") %>
-          <h3 class="text-center"><%= @user.name %></h3>
+          <h3 class="text-center profile-name"><%= @user.name %></h3>
           <span>4.8</span>
           <span class="fa fa-star"></span>
           <span class="fa fa-star"></span>
@@ -105,11 +105,13 @@
         <% end %>
       </div>
 
+
       <div id="create-message">
         <%= simple_form_for [ @chat_room, Message.new ], remote: true, html: {autocomplete: "off" } do |f| %>
         <%= f.input :content, label: false %>
         <%= f.submit class: "btn btn-primary mt-2 btn-block" %>
         <% end %>
+
       </div>
         <!-- </div> -->
       <!-- </div> -->
