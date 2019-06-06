@@ -32,6 +32,19 @@
   text-align: center;
 }
 
+.rating-cards {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin:10px;
+
+  padding-top:18px;
+  text-align: center;
+}
+
+.rating-cards .fa-star {
+  color:#ffd700;
+}
 
 .cards img {
   width: 100px;
