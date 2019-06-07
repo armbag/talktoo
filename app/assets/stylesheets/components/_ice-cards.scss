@@ -251,12 +251,12 @@ table {
 }
 #slide-5:checked ~ .slider__holder .slider__item--3 {
   z-index: 0;
-  transform: translateX(-110px) scale(0.65);
+  transform: translateX(-100px) scale(0.65);
 }
 
 @media (max-width: 900px) {
   #slide-5:checked ~ .slider__holder .slider__item--3 {
-    transform: translateX(-110px) scale(0.65);
+    transform: translateX(-100px) scale(0.65);
   }
 }
 @media (max-width: 768px) {
@@ -267,17 +267,17 @@ table {
 #slide-1:checked ~ .slider__holder .slider__item--4 {
   z-index: -1;
   opacity: 0;
-  transform: translateX(110px) scale(0.65);
+  transform: translateX(100px) scale(0.65);
 }
 
 #slide-2:checked ~ .slider__holder .slider__item--4 {
   z-index: 0;
-  transform: translateX(110px) scale(0.65);
+  transform: translateX(100px) scale(0.65);
 }
 
 @media (max-width: 900px) {
   #slide-2:checked ~ .slider__holder .slider__item--4 {
-    transform: translateX(110px) scale(0.65);
+    transform: translateX(100px) scale(0.65);
   }
 }
 @media (max-width: 768px) {
@@ -314,23 +314,23 @@ table {
 #slide-1:checked ~ .slider__holder .slider__item--5 {
   z-index: -1;
   opacity: 0;
-  transform: translateX(110px) scale(0.65);
+  transform: translateX(100px) scale(0.65);
 }
 
 #slide-2:checked ~ .slider__holder .slider__item--5 {
   z-index: -1;
   opacity: 0;
-  transform: translateX(110px) scale(0.65);
+  transform: translateX(100px) scale(0.65);
 }
 
 #slide-3:checked ~ .slider__holder .slider__item--5 {
   z-index: 0;
-  transform: translateX(110px) scale(0.65);
+  transform: translateX(100px) scale(0.65);
 }
 
 @media (max-width: 900px) {
   #slide-3:checked ~ .slider__holder .slider__item--5 {
-    transform: translateX(110px) scale(0.65);
+    transform: translateX(100px) scale(0.65);
   }
 }
 @media (max-width: 768px) {
@@ -402,7 +402,7 @@ table {
 .slider__holder {
   position: relative;
   width: 100%;
-  max-width: 300px;
+  max-width: 290px;
   margin: 0 auto;
   margin-top: 10px;
   text-align: left;
@@ -410,7 +410,7 @@ table {
 
 @media (max-width: 900px) {
   .slider__holder {
-    max-width: 300px;
+    max-width: 280px;
   }
 }
 @media (max-width: 600px) {
@@ -453,15 +453,15 @@ table {
 
 .section {
   position: relative;
-  width: 100%;
-  padding: 24px 16px;
+  width: 88%;
+  padding: 16px 16px;
   text-align: center;
-  margin-left:30px;
+  margin-left:40px;
 }
 
 .section__entry {
   width: 100%;
-  max-width: 280px;
+  max-width: 220px;
   margin: 0 auto;
 }
 
