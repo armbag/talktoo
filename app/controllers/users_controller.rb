@@ -31,8 +31,14 @@ class UsersController < ApplicationController
     @reviews = @user.received_reviews
     @review = Review.new
     @chat_room = ChatRoom.first
-    @message_active = false
-    @message_active = true if params[:active_tab] == "Messages"
+    # @message_active = false
+    # @message_active = true if params[:active_tab] == "Messages"
+    # @review_active = false
+    # @review_active = true if params[:active_tab] == "Reviews"
+
+
+    @tab_active = params[:active_tab] || "Calendar"
+
     @reviewer = @user.name
 
   end
