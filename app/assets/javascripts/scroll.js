@@ -4,9 +4,3 @@ function scrollLastMessageIntoView() {
   lastMessage.scrollIntoView();
 }
 
-$(document).ready(function() {
-  $('select#placeholder-example').select2({
-    placeholder: "Choose a person",
-    allowClear: true
-  });
-});
