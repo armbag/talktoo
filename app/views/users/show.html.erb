@@ -14,14 +14,13 @@
         </div>
       </div>
       <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'Calendar')" id=<%= 'defaultOpen' if @message_active == false %>> Calendar </button>
-        <button class="tablinks" onclick="openCity(event, 'About')">About</button>
-        <button class="tablinks" onclick="openCity(event, 'Reviews')">Reviews</button>
-        <button class="tablinks" onclick="openCity(event, 'Messages')" id=<%= 'defaultOpen' if @message_active == true %>>Messages</button>
+        <button class="tablinks" onclick="openCity(event, 'Calendar')" id=<%= 'defaultOpen' if @tab_active == "Calendar" %>> Calendar </button>
+        <button class="tablinks" onclick="openCity(event, 'About')" id=<%= 'defaultOpen' if @tab_active == "About" %>>About</button>
+        <button class="tablinks" onclick="openCity(event, 'Reviews')" id=<%= 'defaultOpen' if @tab_active == "Reviews" %>>Reviews</button>
+        <button class="tablinks" onclick="openCity(event, 'Messages')" id=<%= 'defaultOpen' if @tab_active == "Messages" %>>Messages</button>
       </div>
     </div>
   </div>
-
 <% end %>
 
 
