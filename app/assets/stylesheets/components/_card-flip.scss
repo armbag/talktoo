@@ -2,6 +2,7 @@
   display: flex;
   flex-flow: wrap;
   margin-bottom: 20px;
+  position:relative;
 }
 
 .boldname {
@@ -18,8 +19,7 @@
   align-content:space-between;
   cursor: pointer;
   min-height: 450px;
-  min-width: 330px;
-  margin:16px;
+  width: 100%;
 }
 
 .flip-info-card img{
@@ -49,10 +49,8 @@
   overflow: hidden;
   background-color:#f8f8ff;
   // border-right:4px solid #00aee4;
-  width:330px;
   height:450px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin:20px;
 }
 
 .flip-front p {
@@ -68,6 +66,10 @@
   opacity: .25;
 }
 
+.contain-users{
+  padding:20px;
+}
+
 .flip-info-card:hover .flip-front {
   transform: rotateY(180deg);
 }
@@ -81,7 +83,6 @@
   // border-left: 4px solid #167FFB;
   transform: rotateY(-180deg);
   text-align:center;
-  width:330px;
   height:450px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   color:#777777;
